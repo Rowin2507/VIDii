@@ -13,10 +13,10 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 ## Jij
 
 ### Ontwerper:
-Sanne 't Hooft (vervangen door jouw naam)
+Rowin Schmidt
 
 #### Je startniveau:
-Mijn startniveau is: hier je startniveau (kies uit zwart, rood óf blauw)
+Zwart
 
 
 
