@@ -1,19 +1,626 @@
-/* CSS Document */
+/* VARIABLES -------------------------------- */
+:root {
+  --gameboy1-width: 360;
+  --gameboy1-font2: 'Exo 2', sans-serif;
+  --gameboy1-font3: 'Press Start 2P', cursive;
+
+  --color-white: #FFFFFF;
+  --color-gray1: #EBEBEB;
+
+
+  --color-gb1-gray1: #BBBCC3;
+  --color-gb1-gray2: #5E6A7D;
+  --color-gb1-gray3: #717B8F;
+  --color-gb1-gray4: #ADAEB4;
+  --color-gb1-dark1: #181D1C;
+  --color-gb1-dark2: #2C3133;
+  --color-gb1-dark3: #383B3D;
+  --color-gb1-purple: #853081;
+  --color-gb1-burgundy: #8B135E;
+  --color-gb1-blue: #2E3192;
+  --color-gb1-dark-blue: #2E2063;
+  --color-gb1-red: #CC1613;
+  --color-gb1-green1: #486010;
+  --color-gb1-green2: #293D1D
+
+}
+
+
+/* RESET -------------------------------- */
 *, *::after, *::before {
   box-sizing:border-box;  
+  outline: none;
+  appearance: none;
+  margin: 0;
+  padding: 0;
 }
 
+
+/* GENERAL STYLING -------------------------------- */
 html, body {
-  height:100%;
-  margin:0;
+  height:100vh;
+  width: 100vw;
+  overflow: hidden;
 }
+body {
+  /* display: grid;
+  place-items: center; */
 
-button:not([disabled]) {
-  cursor:pointer;
+  font-family: sans-serif;
 }
-
-/* jouw CSS vanaf hier */
-
 h1 {
   color:crimson;
+}
+
+
+
+body > img {
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  transform: translateX(-50%);
+}
+/* button:not([disabled]) {
+  cursor:pointer;
+} */
+
+
+
+
+
+/* GAMEBOY -------------------------------- */
+main > article {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  place-items: center; 
+}
+main > article:nth-of-type(1) {
+  /* background-color: red; */
+}
+/* GAMEBOY ITSELF ---------- */
+main > article:nth-of-type(1) > section:nth-of-type(1) {
+  position: relative;
+  background-color: var(--color-gb1-gray1);
+  width: calc(var(--gameboy1-width) * 1px);
+  aspect-ratio: 10 / 18;
+  border-radius: calc((var(--gameboy1-width) * 0.05) * 1px) calc((var(--gameboy1-width) * 0.05) * 1px) calc((var(--gameboy1-width) * .25) * 1px) calc((var(--gameboy1-width) * 0.05) * 1px) / calc((var(--gameboy1-width) * 0.05) * 1px) calc((var(--gameboy1-width) * 0.05) * 1px) calc((var(--gameboy1-width) * .2) * 1px) calc((var(--gameboy1-width) * 0.05) * 1px);
+  box-shadow: calc(var(--gameboy1-width) * 0.02px) calc(var(--gameboy1-width) * 0.02px) calc(var(--gameboy1-width) * 0.045px) rgb(0 0 0 / 0.15),
+              inset calc(var(--gameboy1-width) * 0.015px) calc(var(--gameboy1-width) * 0.015px) calc(var(--gameboy1-width) * 0.015px) rgb(255 255 255 / 0.45),
+              inset calc(var(--gameboy1-width) * -0.015px) calc(var(--gameboy1-width) * -0.015px) calc(var(--gameboy1-width) * 0.015px) rgb(0 0 0 / 0.05);
+  overflow: hidden;        
+  transform-origin: center 25%;
+  transition: transform 750ms ease-in-out;    
+  transition-delay: 275ms;
+}
+main > article.menu-active:nth-of-type(1) > section:nth-of-type(1) {
+  transform: scale(10);
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > div {
+  content: '';
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  gap: calc(var(--gameboy1-width) * 0.014px);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(3.65% + (var(--gameboy1-width) * 0.015px));
+  background-color: var(--color-gb1-gray4);
+  box-shadow: 0 calc(var(--gameboy1-width) * 0.002px) calc(var(--gameboy1-width) * 0.005px) rgb(255 255 255 / 0.5);
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > div::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: calc((var(--gameboy1-width) * 0.05) * 1px) calc((var(--gameboy1-width) * 0.05) * 1px) 0 0;
+  box-shadow: inset calc(var(--gameboy1-width) * 0.015px) calc(var(--gameboy1-width) * 0.015px) calc(var(--gameboy1-width) * 0.015px) rgb(255 255 255 / 0.45),
+              inset calc(var(--gameboy1-width) * -0.015px) calc(var(--gameboy1-width) * -0.015px) calc(var(--gameboy1-width) * 0.015px) rgb(0 0 0 / 0.05);
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > div > div {
+  height: calc(100% - (var(--gameboy1-width) * 0.015px));
+  width: 8%;
+  background-color: var(--color-gb1-gray1);
+  box-shadow: calc(var(--gameboy1-width) * 0.002px) calc(var(--gameboy1-width) * 0.002px) calc(var(--gameboy1-width) * 0.005px) rgb(0 0 0 / 0.35),
+              inset 0 calc(var(--gameboy1-width) * 0.002px) calc(var(--gameboy1-width) * 0.01px) rgb(255 255 255 / 0.75);
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > div > div:nth-of-type(2) {
+  flex: 1;
+  box-shadow: calc(var(--gameboy1-width) * 0.002px) calc(var(--gameboy1-width) * 0.002px) calc(var(--gameboy1-width) * 0.005px) rgb(0 0 0 / 0.35),
+              inset 0 calc(var(--gameboy1-width) * 0.002px) calc(var(--gameboy1-width) * 0.01px) rgb(255 255 255 / 0.75);
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(1) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 17.5% 8% 6.5% 8%;
+  height: 36%;
+  background-color: var(--color-gb1-gray2);
+  border-radius: calc((var(--gameboy1-width) * 0.035) * 1px) calc((var(--gameboy1-width) * 0.035) * 1px) calc((var(--gameboy1-width) * 0.15) * 1px) calc((var(--gameboy1-width) * 0.035) * 1px);
+  box-shadow: inset calc(var(--gameboy1-width) * 0.005px) calc(var(--gameboy1-width) * 0.005px) calc(var(--gameboy1-width) * 0.005px) rgb(0 0 0 / 0.125),
+              inset calc(var(--gameboy1-width) * -0.005px) calc(var(--gameboy1-width) * -0.005px) calc(var(--gameboy1-width) * 0.005px) rgb(255 255 255 / 0.7);
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(1) > span:first-of-type {
+  display: block;
+  position: absolute;
+  top: 4.5%;
+  left: auto;
+  width: 90%;
+  color: var(--color-white);
+  font-size: calc(var(--gameboy1-width) * 0.0225px);
+  text-transform: uppercase;
+  text-align: right;
+  letter-spacing: .045em;
+  box-shadow: inset 0 calc(var(--gameboy1-width) * 0.0065px) 0 var(--color-gb1-purple), inset 0 calc(var(--gameboy1-width) * -0.0065px) 0 var(--color-gb1-dark-blue);
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(1) > span:first-of-type span {
+  background-color: var(--color-gb1-gray2);
+  padding: 0 .65em;
+  margin-right: 12.5%;
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(1) > span:last-of-type {
+  display: block;
+  position: absolute;
+  left: 2.65%;
+  color: var(--color-white);
+  font-size: calc(var(--gameboy1-width) * 0.0225px);
+  text-transform: uppercase;
+  letter-spacing: .045em;
+  transform: translateY(-100%);
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(1) > span:last-of-type::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 15%;
+  background-color: var(--color-gb1-red);
+  width: calc(var(--gameboy1-width) * 0.035px);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  box-shadow: inset calc(var(--gameboy1-width) * 0.0025px) calc(var(--gameboy1-width) * 0.0025px) calc(var(--gameboy1-width) * 0.005px) rgb(0 0 0 / 0.5),
+              inset calc(var(--gameboy1-width) * -0.0025px) calc(var(--gameboy1-width) * -0.0025px) calc(var(--gameboy1-width) * 0.005px) rgb(255 255 255 / 0.35);
+  transform: translateY(-165%);
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(1) > section {
+  display: grid;
+  place-items: center;
+  background-color: var(--color-gb1-green1);
+  width: 63%;
+  aspect-ratio: 10 / 9;
+  border-radius: calc(var(--gameboy1-width) * 0.01px);
+  box-shadow: inset calc(var(--gameboy1-width) * 0.01px) calc(var(--gameboy1-width) * 0.01px) calc(var(--gameboy1-width) * 0.045px) #2D230599,
+              inset calc(var(--gameboy1-width) * -0.01px) calc(var(--gameboy1-width) * -0.01px) calc(var(--gameboy1-width) * 0.045px) #2D230599;
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(1) > section h2 {
+
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(2) {
+  padding-left: 13%;
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(2) img {
+  width: 67%;
+}
+/* main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) {
+
+} */
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-top: 14.5%;
+  padding: 0 7% 0 11%;
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1) {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: calc(var(--gameboy1-width) * 0.255px);
+  aspect-ratio: 1 / 1;
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 40%;
+  background-color: var(--color-gb1-dark1);
+  border-radius: calc(var(--gameboy1-width) * 0.0165px);
+  transform: translateX(-50%);
+  filter: blur(calc(var(--gameboy1-width) * 0.0015px));
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1)::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 40%;
+  width: 100%;
+  background-color: var(--color-gb1-dark1);
+  border-radius: calc(var(--gameboy1-width) * 0.0165px);
+  transform: translateY(-50%);
+  filter: blur(calc(var(--gameboy1-width) * 0.0015px));
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1) button {
+  position: relative;
+  height: 91%;
+  aspect-ratio: 1 / 1;
+  background-color: transparent;
+  border: none;
+
+  display: grid;
+  place-items: center;
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1) button > span {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10%;
+  width: calc(100% / 3);
+  aspect-ratio: 1 / 1;
+  background-color: var(--color-gb1-dark2);
+  z-index: 1;
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1) button > span:nth-of-type(1) {
+  justify-self: start;
+  justify-content: flex-end;
+  padding-right: 2.5%;
+  z-index: 2;
+  border-radius: 15% 0 0 15%;
+  box-shadow: inset 0 calc(var(--gameboy1-width) * -0.019px) calc(var(--gameboy1-width) * 0.015px) calc(var(--gameboy1-width) * -0.015px) rgb(0 0 0 / 0.45),
+              inset calc(var(--gameboy1-width) * 0.01px) calc(var(--gameboy1-width) * 0.0045px) calc(var(--gameboy1-width) * 0.0075px) calc(var(--gameboy1-width) * -0.003px) rgb(155 155 155 / 0.35);
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1) button > span:nth-of-type(2) {
+  align-self: start;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 2.5%;
+  border-radius: 15% 15% 0 0;
+  box-shadow: inset calc(var(--gameboy1-width) * -0.019px) 0 calc(var(--gameboy1-width) * 0.015px) calc(var(--gameboy1-width) * -0.015px) rgb(0 0 0 / 0.45),
+              inset calc(var(--gameboy1-width) * 0.01px) calc(var(--gameboy1-width) * 0.0055px) calc(var(--gameboy1-width) * 0.0075px) calc(var(--gameboy1-width) * -0.003px) rgb(155 155 155 / 0.35);
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1) button > span:nth-of-type(3) {
+  justify-self: end;
+  justify-content: flex-start;
+  padding-left: 2.5%;
+  border-radius: 0 15% 15% 0;
+  box-shadow: inset calc(var(--gameboy1-width) * -0.0045px) calc(var(--gameboy1-width) * -0.01px) calc(var(--gameboy1-width) * 0.0075px) calc(var(--gameboy1-width) * -0.002px) rgb(0 0 0 / 0.275),
+              inset 0 calc(var(--gameboy1-width) * 0.02px) calc(var(--gameboy1-width) * 0.015px) calc(var(--gameboy1-width) * -0.025px) rgb(255 255 255 / 0.45);
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1) button > span:nth-of-type(4) {
+  align-self: end;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 2.5%;
+  border-radius: 0 0 15% 15%;
+  box-shadow: inset calc(var(--gameboy1-width) * -0.0045px) calc(var(--gameboy1-width) * -0.01px) calc(var(--gameboy1-width) * 0.0075px) calc(var(--gameboy1-width) * -0.002px) rgb(0 0 0 / 0.275),
+              inset calc(var(--gameboy1-width) * 0.025px) 0 calc(var(--gameboy1-width) * 0.0125px) calc(var(--gameboy1-width) * -0.0215px) rgb(255 255 255 / 0.245);
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1) button > span:nth-of-type(5) {
+  display: grid;
+  place-items: center;
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1) button > span:nth-of-type(5)::after {
+  content: '';
+  height: 80%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  box-shadow: inset calc(var(--gameboy1-width) * 0.0075px) calc(var(--gameboy1-width) * 0.0035px) calc(var(--gameboy1-width) * 0.025px) rgb(0 0 0 / 0.5),
+              inset calc(var(--gameboy1-width) * -0.0075px) calc(var(--gameboy1-width) * -0.0035px) calc(var(--gameboy1-width) * 0.015px) rgb(255 255 255 / 0.15),
+              calc(var(--gameboy1-width) * 0.0025px) calc(var(--gameboy1-width) * 0.0015px) calc(var(--gameboy1-width) * 0.0035px) rgb(255 255 255 / 0.075),
+              calc(var(--gameboy1-width) * -0.0025px) calc(var(--gameboy1-width) * -0.0015px) calc(var(--gameboy1-width) * 0.0025px) rgb(0 0 0 / 0.25);
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1) button > span:nth-of-type(1) span,
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1) button > span:nth-of-type(3) span {
+  background-color: rgb(255 255 255 / 0.015);
+  height: 70%;
+  aspect-ratio: 1 / 3.5;
+  border-radius: calc(var(--gameboy1-width) * 0.01px);
+  box-shadow: inset calc(var(--gameboy1-width) * 0.0015px) calc(var(--gameboy1-width) * 0.0015px) calc(var(--gameboy1-width) * 0.0035px) rgb(155 155 155 / 0.3),
+              calc(var(--gameboy1-width) * 0.002px) calc(var(--gameboy1-width) * 0.002px) calc(var(--gameboy1-width) * 0.003px) rgb(75 75 75 / 0.3);
+  opacity: 0.65;
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1) button > span:nth-of-type(2) span,
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1) button > span:nth-of-type(4) span {
+  background-color: rgb(255 255 255 / 0.015);
+  width: 70%;
+  aspect-ratio: 3.5 / 1;
+  border-radius: calc(var(--gameboy1-width) * 0.01px);
+  box-shadow: inset calc(var(--gameboy1-width) * 0.0015px) calc(var(--gameboy1-width) * 0.0015px) calc(var(--gameboy1-width) * 0.0035px) rgb(155 155 155 / 0.3),
+              calc(var(--gameboy1-width) * 0.002px) calc(var(--gameboy1-width) * 0.002px) calc(var(--gameboy1-width) * 0.003px) rgb(75 75 75 / 0.3);
+  opacity: 0.65;
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(2) {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 9.5%;
+  height: fit-content;
+  transform: rotate(-25deg) translateX(-8.5%) translateY(98%);
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(2) button {
+  position: relative;
+  background-color: var(--color-gb1-burgundy);
+  width: 22%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: none;
+  box-shadow: inset calc(var(--gameboy1-width) * 0.0025px) calc(var(--gameboy1-width) * 0.0025px) calc(var(--gameboy1-width) * 0.0125px) rgb(255 185 255 / 0.65),
+              inset calc(var(--gameboy1-width) * -0.0025px) calc(var(--gameboy1-width) * -0.0025px) calc(var(--gameboy1-width) * 0.005px) rgb(0 0 0 / 0.65),
+              0 0 calc(var(--gameboy1-width) * 0.003px) calc(var(--gameboy1-width) * 0.005px) rgb(0 0 0 / 0.65),
+              calc(var(--gameboy1-width) * 0.0065px) calc(var(--gameboy1-width) * 0.0065px) calc(var(--gameboy1-width) * 0.01px) rgb(0 0 0 / 0.85);
+  transform-style: preserve-3d;
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(2) button:first-of-type:before {
+  content: '';
+  position: absolute;
+  left: -25%;
+  top: 50%;
+  transform: translateY(-50%) translateZ(-1px);
+  height: 145%;
+  aspect-ratio: 2 / 1;
+  border-radius: calc(var(--gameboy1-width) * 0.1px);
+  box-shadow: inset calc(var(--gameboy1-width) * 0.005px) calc(var(--gameboy1-width) * 0.025px) calc(var(--gameboy1-width) * 0.05px) rgb(0 0 0 / 0.125),
+              inset calc(var(--gameboy1-width) * -0.025px) calc(var(--gameboy1-width) * -0.025px) calc(var(--gameboy1-width) * 0.05px) rgb(255 255 255 / 0.2);
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(2) button::after {
+  content: 'B';
+  position: absolute;
+  left: 50%;
+  bottom: -65%;
+  transform: translateX(-50%);
+  font-family: var(--gameboy1-font2);
+  font-size: calc(var(--gameboy1-width) * 0.035px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .075em;
+  color: var(--color-gb1-blue);
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(2) button:last-of-type:after {
+  content: 'A';
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(3) {
+  width: 100%;
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(3) button {
+  position: relative;
+  background-color: var(--color-gb1-gray3);
+  width: 15%;
+  aspect-ratio: 3.5 / 1;
+  border-radius: calc(var(--gameboy1-width) * 0.025px);
+  border: none;
+  box-shadow: inset calc(var(--gameboy1-width) * 0.005px) calc(var(--gameboy1-width) * 0.0085px) calc(var(--gameboy1-width) * 0.02px) rgb(255 255 255 / 0.35),
+              inset calc(var(--gameboy1-width) * -0.0025px) calc(var(--gameboy1-width) * -0.0025px) calc(var(--gameboy1-width) * 0.01px) rgb(0 0 0 / 0.45),
+              0 0 calc(var(--gameboy1-width) * 0.003px) calc(var(--gameboy1-width) * 0.004px) rgb(0 0 0 / 0.65),
+              calc(var(--gameboy1-width) * 0.0045px) calc(var(--gameboy1-width) * 0.0045px) calc(var(--gameboy1-width) * 0.0125px) rgb(0 0 0 / 0.65);
+  transform: rotate(-25deg) translateX(-35%);
+  transform-style: preserve-3d;
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(3) button:before {
+  content: '';
+  position: absolute;
+  left: -11%;
+  top: 50%;
+  transform: translateY(-52%) translateZ(-1px);
+  height: 175%;
+  aspect-ratio: 2.45 / 1;
+  border-radius: calc(var(--gameboy1-width) * 0.1px);
+  box-shadow: inset calc(var(--gameboy1-width) * 0.005px) calc(var(--gameboy1-width) * 0.025px) calc(var(--gameboy1-width) * 0.05px) rgb(0 0 0 / 0.2),
+              inset calc(var(--gameboy1-width) * -0.025px) calc(var(--gameboy1-width) * -0.025px) calc(var(--gameboy1-width) * 0.075px) rgb(255 255 255 / 0.75);
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(3) button::after {
+  content: 'Select';
+  position: absolute;
+  left: 50%;
+  bottom: -100%;
+  transform: translateX(-50%) translateY(50%);
+  font-family: var(--gameboy1-font2);
+  font-size: calc(var(--gameboy1-width) * 0.0325px);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .075em;
+  color: var(--color-gb1-blue);
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(3) button:last-of-type {
+  cursor: pointer;
+  transition: 250ms box-shadow;
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(3) button:last-of-type:hover {
+  box-shadow: inset calc(var(--gameboy1-width) * 0.005px) calc(var(--gameboy1-width) * 0.0085px) calc(var(--gameboy1-width) * 0.02px) rgb(255 255 255 / 0.25),
+              inset calc(var(--gameboy1-width) * -0.0025px) calc(var(--gameboy1-width) * -0.0025px) calc(var(--gameboy1-width) * 0.01px) rgb(0 0 0 / 0.5),
+              0 0 calc(var(--gameboy1-width) * 0.003px) calc(var(--gameboy1-width) * 0.004px) rgb(0 0 0 / 0.65),
+              calc(var(--gameboy1-width) * 0.0045px) calc(var(--gameboy1-width) * 0.0045px) calc(var(--gameboy1-width) * 0.0125px) rgb(0 0 0 / 0.65);
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(3) button:last-of-type:after {
+  content: 'Start';
+  pointer-events: none;
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(3) button:last-of-type.pressed {
+  box-shadow: inset calc(var(--gameboy1-width) * 0.005px) calc(var(--gameboy1-width) * 0.0085px) calc(var(--gameboy1-width) * 0.025px) rgb(0 0 0 / 0.075),
+              inset calc(var(--gameboy1-width) * -0.0025px) calc(var(--gameboy1-width) * -0.0025px) calc(var(--gameboy1-width) * 0.015px) rgb(0 0 0 / 0.4),
+              0 0 calc(var(--gameboy1-width) * 0.003px) calc(var(--gameboy1-width) * 0.004px) rgb(0 0 0 / 0.65),
+              calc(var(--gameboy1-width) * 0.0045px) calc(var(--gameboy1-width) * 0.0045px) calc(var(--gameboy1-width) * 0.0125px) rgb(0 0 0 / 0);
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(4) > div {
+  position: relative;
+  list-style: none;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 3.25%;
+  height: calc(var(--gameboy1-width) * 0.165px);
+  transform: rotate(-29deg) translateX(-13%) translateY(131%);
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(4) > div::after {
+  content: '';
+  position: absolute;
+  right: -100%;
+  bottom: 0;
+  height: calc(var(--gameboy1-width) * 0.165px);
+  width: 200%;
+  background-color: rgb(0 0 0 / 0.05);
+  transform: translateY(72.5%);
+  filter: blur(calc(var(--gameboy1-width) * 0.005px));
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(4) > div div {
+  position: relative;
+  background-color: var(--color-gb1-gray4);
+  height: 100%;
+  aspect-ratio: 1 / 7;
+  border-radius: calc(var(--gameboy1-width) * 0.025px);
+  box-shadow: inset calc(var(--gameboy1-width) * -0.0025px) calc(var(--gameboy1-width) * -0.0025px) calc(var(--gameboy1-width) * 0.005px) rgb(255 255 255 / 0.45),
+              inset calc(var(--gameboy1-width) * 0.0065px) calc(var(--gameboy1-width) * 0.0065px) calc(var(--gameboy1-width) * 0.0065px) rgb(0 0 0 / 0.25);
+  overflow: hidden;
+  transform-style: preserve-3d;
+  }
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(4) > div div:not(:last-of-type):after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 30%;
+  aspect-ratio: 1 / 17;
+  background-color: var(--color-gb1-dark1);
+  opacity: 0.75;
+  z-index: 0;
+  transform: translateZ(-1px);
+  border-radius: calc(var(--gameboy1-width) * 0.0025px);
+}
+/* GAMEBOY INTERFACE ---------- */
+main > article:nth-of-type(1) > section:nth-of-type(2) {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  background-color: var(--color-gb1-green1);
+  box-shadow: none;
+  transform: scale(0.75);
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: 350ms 750ms, box-shadow 1s 850ms;
+}
+main > article.menu-active:nth-of-type(1) > section:nth-of-type(2) {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  box-shadow: inset 0 0 10vh #2D230599;
+}
+main > article:nth-of-type(1) > section:nth-of-type(2) ol {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 85%;
+}
+main > article:nth-of-type(1) > section:nth-of-type(2) ol li {
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+main > article:nth-of-type(1) > section:nth-of-type(2) ol li button {
+  position: relative;
+  padding: 0.5em 0.75em;
+  width: 100%;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  font-family: var(--gameboy1-font3);
+  font-size: 5vh;
+  line-height: 155%;
+  color: var(--color-gb1-green2);
+  cursor: pointer;
+  transition: 250ms;
+}
+main > article:nth-of-type(1) > section:nth-of-type(2) ol li button:hover::before,
+main > article:nth-of-type(1) > section:nth-of-type(2) ol li.active button::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateX(-115%) translateY(-50%);
+  color: var(--color-gb1-green2);
+}
+main > article:nth-of-type(1) > section:nth-of-type(2) ol li button:hover::after,
+main > article:nth-of-type(1) > section:nth-of-type(2) ol li.active button::after {
+  content: '<';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateX(125%) translateY(-50%);
+  color: var(--color-gb1-green2);
+}
+main > article:nth-of-type(1) > section:nth-of-type(2) ol li button:hover {
+  background-color: var(--color-gb1-green2);
+  color: var(--color-gb1-green1);
+}
+main > article:nth-of-type(1) > section:nth-of-type(2) ol li.active button {
+  animation-name: gameboy-menu-pulse-text;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+main > article:nth-of-type(1) > section:nth-of-type(2) ol li.active button::before,
+main > article:nth-of-type(1) > section:nth-of-type(2) ol li.active button::after {
+  animation-name: gameboy-menu-pulse-chevron;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+main > article:nth-of-type(1) > section:nth-of-type(2) ol li.active button:hover,
+main > article:nth-of-type(1) > section:nth-of-type(2) ol li.active button:hover::before,
+main > article:nth-of-type(1) > section:nth-of-type(2) ol li.active button:hover::after {
+  animation-name: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* KEYFRAMES -------------------------------- */
+
+/* GAMEBOY ---------- */
+@keyframes gameboy-menu-pulse-text {
+  0%, 100% {
+    background-color: var(--color-gb1-green1);
+    color: var(--color-gb1-green2);
+  }
+  50% {
+    background-color: var(--color-gb1-green2);
+    color: var(--color-gb1-green1);
+  }  
+}
+@keyframes gameboy-menu-pulse-chevron {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }  
 }
