@@ -81,17 +81,14 @@ Zwart
 <details>
   <summary>Het proces</summary>
   
-  ### Uitwerking 2:
+  ### Uitwerking 1:
   Na het schetsen begin je met het omzetten naar code.Om een realistisch beeld te maken uit code, trek ik de afbeelding van het desbetreffende apparaat als het ware over door deze achter de html elementen te positioneren. De html elementen hebben dan een lichte opacity, zodat ik deze precies op de juiste plek kan zetten. Eerst werk ik globaal de elementen uit d.m.v. felle kleuren en later zal ik deze omzetten naar de correcte kleur. Als laatste stap voeg ik dingen als shading en shadows toe om het beeld realistischer te maken.
 
   <img src="readme-images/dsl-1.png" width="375px" alt="stap 1 DS Lite">
   <img src="readme-images/dsl-2.png" width="375px" alt="stap 2 DS Lite">
   <img src="readme-images/dsl-3.png" width="375px" alt="stap 3 DS Lite">
 
-  #### oplossing:
-  Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
-
-
+  
 
   ### Uitwerking 2:
    Uiteiendelijk worden de elementen dus volledig met schaduw en shading aangevuld, waardoor het er behoorlijk realistisch uit gaat zien. Dit is het resultaat van de GameBoy.
