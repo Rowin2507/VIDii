@@ -28,15 +28,16 @@ Zwart
   <summary>De eerste versie/schets van je ontwerp & je persoonlijke uitdaging</summary>
 
   ### De eerste versie/schets:
-  <img src="readme-images/GameBoy-schets1.png" width="375px" alt="eerste versie/schets">
+  <img src="readme-images/GameBoy-schets.png" width="375px" alt="eerste versie/schets 1">
+  <img src="readme-images/GameBoy-schets2.png" width="375px" alt="eerste versie/schets 2">
+  <img src="readme-images/GameBoy-schets3.png" width="375px" alt="eerste versie/schets 3">
 
 
   ### Je ambitie: 
   Aan deze technieken/punten wil ik werken:
-  - punt 1
-  - punt 2
-  - nog een punt
-  - ...
+  - Beter worden in het gebruiken van shadows en de achterliggende code daarvan > om op een realistische manier een object te maken in code (zodat het net echt lijkt).
+  - Nette code schrijven dat overzichtelijk is (ook als er geen classes worden gebruikt).
+  - Een leuke/coole interactieve website maken met een twist.
  
 </details>
 
@@ -46,26 +47,29 @@ Zwart
 ## Voortgang/Feedback 1
 
 <details>
-  <summary>Mijn bevindingen + wijzigingen (minimaal 5)</summary>
+  <summary>Feedback van Bryan</summary>
 
   ### Bevinding 1:
-  Omschrijving van wat er nog niet orde was (tekst en afbeeding(en)).
+  Tijdens de eerste feedback ronde had ik nog niet veel om te laten zien, dus veel moest nog worden uitgewerkt. Echter is er positieve feedback gegeven op de schetsen.
 
   #### oplossing:
-  Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
+  Zo maak ik goed gebruik van progressive disclosure (dmv de lijst in de interface om een handheld te selecteren) en zit het concept goed in elkaar om uit te kunnen gaan werken.
 
 
 
   ### Bevinding 2:
-  Omschrijving van wat er nog niet orde was (tekst en afbeeding(en)).
+  Ook kwam naar voren dat het wellicht leuk is om naast het tonen van de de handhelds, ook nog wat extra's toe te voegen in het scherm of in het algemeen als easteregg.
 
   #### oplossing:
-  Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
+  Ik ga dus binnen het scherm nog wat animaties toevoegen en ik zal kijken waar een easteregg passend is per apparaat. Zo moet deze natuurlijk niet teveel opvallen, maar moet het wel leuk zijn om te kunnen ontdekken.
 
 
 
   ### Bevinding 3:
-  ...
+  Het uitwerken van 5+ handhelds zal op deze manier te veel tijd kosten voor deze periode.
+  
+  #### oplossing:
+  Ik ga nu maximaal 3 handhelds uitwerken: de eerste gameboy, de DS Lite en de Switch. Zo heb ik een overbrugging van telkens 10/15 jaar en laat ik dus alsnog een tijdlijn zien, maar dan meer globaal.
 
 </details>
 
@@ -75,26 +79,24 @@ Zwart
 ## Voortgang/Feedback 2
 
 <details>
-  <summary>Mijn bevindingen + wijzigingen (minimaal 5)</summary>
+  <summary>Het proces</summary>
   
-  ### Bevinding 1:
-  Omschrijving van wat er nog niet orde was (tekst en afbeeding(en)).
+  ### Uitwerking 2:
+  Na het schetsen begin je met het omzetten naar code.Om een realistisch beeld te maken uit code, trek ik de afbeelding van het desbetreffende apparaat als het ware over door deze achter de html elementen te positioneren. De html elementen hebben dan een lichte opacity, zodat ik deze precies op de juiste plek kan zetten. Eerst werk ik globaal de elementen uit d.m.v. felle kleuren en later zal ik deze omzetten naar de correcte kleur. Als laatste stap voeg ik dingen als shading en shadows toe om het beeld realistischer te maken.
+
+  <img src="readme-images/dsl-1.png" width="375px" alt="stap 1 DS Lite">
+  <img src="readme-images/dsl-2.png" width="375px" alt="stap 2 DS Lite">
+  <img src="readme-images/dsl-3.png" width="375px" alt="stap 3 DS Lite">
 
   #### oplossing:
   Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
 
 
 
-  ### Bevinding 2:
-  Omschrijving van wat er nog niet orde was (tekst en afbeeding(en)).
+  ### Uitwerking 2:
+   Uiteiendelijk worden de elementen dus volledig met schaduw en shading aangevuld, waardoor het er behoorlijk realistisch uit gaat zien. Dit is het resultaat van de GameBoy.
 
-  #### oplossing:
-  Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
-
-
-
-  ### Bevinding 3:
-  ...
+  <img src="readme-images/gb-1.png" width="375px" alt="uitwerking GameBoy">
 
 </details>
 
