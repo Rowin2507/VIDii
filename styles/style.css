@@ -45,8 +45,7 @@ html, body {
 body {
   /* display: grid;
   place-items: center; */
-
-  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 h1 {
   color:crimson;
@@ -157,6 +156,7 @@ main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(1) 
   text-transform: uppercase;
   text-align: right;
   letter-spacing: .045em;
+  line-height: 1em;
   box-shadow: inset 0 calc(var(--gameboy1-width) * 0.0065px) 0 var(--color-gb1-purple), inset 0 calc(var(--gameboy1-width) * -0.0065px) 0 var(--color-gb1-dark-blue);
 }
 main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(1) > span:first-of-type span {
@@ -172,6 +172,7 @@ main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(1) 
   font-size: calc(var(--gameboy1-width) * 0.0225px);
   text-transform: uppercase;
   letter-spacing: .045em;
+  line-height: 1em;
   transform: translateY(-100%);
 }
 main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(1) > span:last-of-type::before {
@@ -188,8 +189,6 @@ main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(1) 
   transform: translateY(-165%);
 }
 main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(1) > section {
-  display: grid;
-  place-items: center;
   background-color: var(--color-gb1-green1);
   width: 63%;
   aspect-ratio: 10 / 9;
@@ -197,8 +196,28 @@ main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(1) 
   box-shadow: inset calc(var(--gameboy1-width) * 0.01px) calc(var(--gameboy1-width) * 0.01px) calc(var(--gameboy1-width) * 0.045px) #2D230599,
               inset calc(var(--gameboy1-width) * -0.01px) calc(var(--gameboy1-width) * -0.01px) calc(var(--gameboy1-width) * 0.045px) #2D230599;
 }
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(1) > section h2 {
-
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(1) > section ul {
+  list-style: none;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(1) > section ul li {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  width: 100%;
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(1) > section ul li:first-of-type svg {
+  width: 70%;
+  fill: var(--color-gb1-green2);
+  animation-name: gameboy-bootup;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+main > article.menu-active:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(1) > section ul li:first-of-type svg {
+  animation-name: none;
 }
 main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(2) {
   padding-left: 13%;
@@ -206,9 +225,6 @@ main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(2) 
 main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(2) img {
   width: 67%;
 }
-/* main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) {
-
-} */
 main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul {
   display: flex;
   flex-wrap: wrap;
@@ -514,13 +530,14 @@ main > article:nth-of-type(1) > section:nth-of-type(2) {
   z-index: 10;
   opacity: 0;
   visibility: hidden;
-  transition: 350ms 750ms, box-shadow 1s 850ms;
+  transition: 350ms 250ms, box-shadow 350ms 250ms;
 }
 main > article.menu-active:nth-of-type(1) > section:nth-of-type(2) {
   opacity: 1;
   visibility: visible;
   transform: scale(1);
   box-shadow: inset 0 0 10vh #2D230599;
+  transition: 350ms 750ms, box-shadow 1s 850ms;
 }
 main > article:nth-of-type(1) > section:nth-of-type(2) ol {
   list-style: none;
@@ -606,6 +623,14 @@ main > article:nth-of-type(1) > section:nth-of-type(2) ol li.active button:hover
 /* KEYFRAMES -------------------------------- */
 
 /* GAMEBOY ---------- */
+@keyframes gameboy-bootup {
+  0%, 25% {
+    transform: translateY(-500%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 @keyframes gameboy-menu-pulse-text {
   0%, 100% {
     background-color: var(--color-gb1-green1);
