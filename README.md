@@ -91,7 +91,7 @@ Zwart
   
 
   ### Uitwerking 2:
-   Uiteiendelijk worden de elementen dus volledig met schaduw en shading aangevuld, waardoor het er behoorlijk realistisch uit gaat zien. Ook de interface met het menu is afgerond. Hier kan je switchen naar de andere apparaten (door te klikken op start, wordt dit scherm geopend). Dit is het resultaat van de GameBoy.
+   Uiteindelijk worden de elementen dus volledig met schaduw en shading aangevuld, waardoor het er behoorlijk realistisch uit gaat zien. Ook de interface met het menu is afgerond. Hier kan je switchen naar de andere apparaten (door te klikken op start, wordt dit scherm geopend). Dit is het resultaat van de GameBoy.
 
   <img src="readme-images/gb-1.png" width="375px" alt="uitwerking GameBoy">
   <img src="readme-images/gb-2.png" width="375px" alt="uitwerking GameBoy interface">
