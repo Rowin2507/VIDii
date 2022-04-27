@@ -183,15 +183,15 @@ Zwart
   <img src="readme-images/final-ds.png" width="375px" alt="Final ontwerp DSLite">
 
   ### Dit ging goed/Heb ik geleerd: 
-  Korte omschrijving met plaatje(s)
+  Het intensief gebruiken van meerder box-shadows binnen hetzelfde element, heb ik nooit eerder gedaan. Dit was dus even goed begrijpen hoe de volgorde in elkaar zit van de "lagen" en hoe je bv spread geeft. Echter pakte ik dit al snel op en voelde het al erg natuurlijk aan na een aantal elementen. Ik denk dat dat ook goed terug te zien is in de verschillende uitwerkingen. Zo ben ik begonnen met de GameBoy, waar het wat moeilijker ging dan met de DS en is dat naar mijn mening terug te zien in de mate van realisme in de apparaten.
 
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="top">
+  <img src="readme-images/goed.png" width="375px" alt="top">
 
 
   ### Dit was lastig/Is niet gelukt:
-  Korte omschrijving met plaatje(s)
+  Ik was er al vrij snel zeker van dat ik variabele wilde gaan gebruiken bij het maken van de apparaten. Echter heb ik het bij het eerste apparaat voor mijzelf te moeilijk gemaakt, terwijl dat nergens voor nodig was. Zo gebruik ik telkens een calc functie die de variabele op een andere manier "schaalt". Tijdens het uitwerken van de DS en de feedback van Sophie, dat ze het heel moeilijk te lezen vond, heb ik dus bedacht dat ik de handheld parent een font size geef a.d.h.v. de variabele en dat ik dan voor de afmetingen in de siblings telkens em gebruik. Zo blijft de code veel overzichtelijk voor mij, maar helemaal voor anderen.
 
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="bummer">
+  <img src="readme-images/lastig.png" width="375px" alt="bummer">
 </details>
 
 
@@ -205,8 +205,12 @@ Zwart
 
 Nb. Wees specifiek ('css-tricks' als bron is bijv. niet specifiek genoeg).
 
-1. bron 1
-2. bron 2
-3. ...
+1. https://gomakethings.com/how-to-access-and-use-data-attributes-in-your-css/
+2. https://stackoverflow.com/questions/6268508/restart-animation-in-css3-any-better-way-than-removing-the-element
+3. https://developer.mozilla.org/en-US/docs/Web/API/BatteryManager/level
+4. https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Feature_detection
+5. https://developer.mozilla.org/en-US/docs/web/javascript/reference/global_objects/date
+6. https://stackoverflow.com/questions/14387690/how-can-i-show-only-corner-borders
+7. https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/conic-gradient
 
 </details>
