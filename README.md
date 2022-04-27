@@ -87,7 +87,7 @@ Zwart
   <img src="readme-images/dsl-1.png" width="375px" alt="stap 1 DS Lite">
   <img src="readme-images/dsl-2.png" width="375px" alt="stap 2 DS Lite">
   <img src="readme-images/dsl-3.png" width="375px" alt="stap 3 DS Lite">
-
+  <img src="readme-images/dsl-4.png" width="375px" alt="stap 4 DS Lite">
   
 
   ### Uitwerking 2:
