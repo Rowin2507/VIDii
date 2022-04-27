@@ -401,7 +401,7 @@ main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) 
 }
 main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(1) > ul > li button:hover,
 main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(1) > ul > li button:focus {
-  background-color: red;
+/*   background-color: red; */
 }
 main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(1) > ul > li:nth-of-type(1) button {
   justify-content: flex-end;
