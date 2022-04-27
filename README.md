@@ -99,7 +99,10 @@ Zwart
   <summary>Feedback van Sophie</summary>
   
   ### Bevinding 1:
-  De meeste punten in de checklist heb ik goed afgerond, echter zijn er natuurlijk altijd verbeterpunten of tips voor in het vervolgproces.
+  De meeste punten in de checklist heb ik goed afgerond, echter zijn er natuurlijk altijd verbeterpunten of tips voor in het vervolgproces. Wel kwam naar voren dat sommige stukken code onnodig complex is gemaakt/
+  
+  #### oplossing:
+  Leesbaarheid van bepaalde stukken code vergroten in het vervolg. Zo zal ik aan een parent een fontsize meegeven met een variabele en zal ik em gebruiken voor siblings ipv telkens deze variabele te gebruiken binnen een calc() functie.
   
   
   ### Bevinding 2:
