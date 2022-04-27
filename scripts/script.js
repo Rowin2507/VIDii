@@ -20,7 +20,7 @@ function gameBoyMenuClose() {
 
 // PLAY AUDIO ON DEVICE BOOT
 function bootGameBoyAudio() {
-    var gameBoyBootAudio = new Audio('../sounds/gameboy-boot-audio.mp3');
+    var gameBoyBootAudio = new Audio('sounds/gameboy-boot-audio.mp3');
     if (!gameBoy.classList.contains('menu-active')) {
         console.log("Booting...")
 
@@ -83,7 +83,7 @@ function DSLiteMenuClose() {
 
 // PLAY AUDIO ON DEVICE BOOT
 function bootDSLiteAudio() {
-    var DSLiteBootAudio = new Audio('../sounds/ds-boot-audio.mp3');
+    var DSLiteBootAudio = new Audio('sounds/ds-boot-audio.mp3');
     if (!DSLite.classList.contains('menu-active')) {
         console.log("Booting...")
 
