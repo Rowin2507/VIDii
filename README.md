@@ -192,6 +192,10 @@ Zwart
   Ik was er al vrij snel zeker van dat ik variabele wilde gaan gebruiken bij het maken van de apparaten. Echter heb ik het bij het eerste apparaat voor mijzelf te moeilijk gemaakt, terwijl dat nergens voor nodig was. Zo gebruik ik telkens een calc functie die de variabele op een andere manier "schaalt". Tijdens het uitwerken van de DS en de feedback van Sophie, dat ze het heel moeilijk te lezen vond, heb ik dus bedacht dat ik de handheld parent een font size geef a.d.h.v. de variabele en dat ik dan voor de afmetingen in de siblings telkens em gebruik. Zo blijft de code veel overzichtelijk voor mij, maar helemaal voor anderen.
 
   <img src="readme-images/lastig.png" width="375px" alt="bummer">
+  
+  
+  ### Hoe verder?
+  Ik ga nu nog verder met het verder uitwerken van de Switch en de bijhorende interacties. Ook zal ik de interface elementen van de andere handhelds verfijnen. Het interactief maken van alle knoppen ben ik ook mee bezig. Nu zijn ze dat nog niet, aangezien er geen functie achter zit.
 </details>
 
 
