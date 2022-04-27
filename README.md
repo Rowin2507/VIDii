@@ -94,9 +94,10 @@ Zwart
   <img src="readme-images/gb-1.png" width="375px" alt="uitwerking GameBoy">
   <img src="readme-images/gb-2.png" width="375px" alt="uitwerking GameBoy interface">
 
+</details>
+<details>
+  <summary>Feedback van Sophie</summary>
   
-  
-  ####Feedback van Sophie
   ### Bevinding 1:
   De meeste punten in de checklist heb ik goed afgerond, echter zijn er natuurlijk altijd verbeterpunten of tips voor in het vervolgproces. Wel kwam naar voren dat sommige stukken code onnodig complex is gemaakt/
   
