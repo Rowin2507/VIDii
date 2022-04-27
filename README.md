@@ -35,7 +35,7 @@ Zwart
 
   ### Je ambitie: 
   Aan deze technieken/punten wil ik werken:
-  - Beter worden in het gebruiken van shadows en de achterliggende code daarvan > om op een realistische manier een object te maken in code (zodat het net echt lijkt).
+  - Beter worden in het gebruiken van shadows / gradients en de achterliggende code daarvan > om op een realistische manier een object te maken in code (zodat het net echt lijkt).
   - Nette code schrijven dat overzichtelijk is (ook als er geen classes worden gebruikt).
   - Een leuke/coole interactieve website maken met een twist.
  
@@ -56,13 +56,11 @@ Zwart
   Zo maak ik goed gebruik van progressive disclosure (dmv de lijst in de interface om een handheld te selecteren) en zit het concept goed in elkaar om uit te kunnen gaan werken.
 
 
-
   ### Bevinding 2:
   Ook kwam naar voren dat het wellicht leuk is om naast het tonen van de de handhelds, ook nog wat extra's toe te voegen in het scherm of in het algemeen als easteregg.
 
   #### oplossing:
   Ik ga dus binnen het scherm nog wat animaties toevoegen en ik zal kijken waar een easteregg passend is per apparaat. Zo moet deze natuurlijk niet teveel opvallen, maar moet het wel leuk zijn om te kunnen ontdekken.
-
 
 
   ### Bevinding 3:
@@ -96,6 +94,34 @@ Zwart
   <img src="readme-images/gb-1.png" width="375px" alt="uitwerking GameBoy">
   <img src="readme-images/gb-2.png" width="375px" alt="uitwerking GameBoy interface">
 
+  
+  
+  <summary>Feedback van Sophie</summary>
+  
+  ### Bevinding 1:
+  De meeste punten in de checklist heb ik goed afgerond, echter zijn er natuurlijk altijd verbeterpunten of tips voor in het vervolgproces.
+  
+  
+  ### Bevinding 2:
+  Niet alle klikbare elementen zijn nog te interacteren met het toetsenbord.
+  
+  #### oplossing:
+  Zorgen dat de elementen die interactief zijn (buttons) en bepaalde UI elementen zowel via muis als toetsenbord te navigeren is. Dit ga ik doen door de focus, hover en o.a. active state toe te passen in mijn code.
+  
+  
+  ### Bevinding 3:
+  Het ontbrak nog aan een titel (h1) en andere tekstelementen.
+  
+  #### oplossing:
+  Aan de pagina ga ik sowieso een h1 toevoegen met andere sub-headings en paragraphs waar nodig.
+  
+  
+  ### Bevinding 4:
+  De gebruikte bronnen zijn nog niet in GitHub vermeld.
+  
+  #### oplossing:
+  Toevoegen aan de bronvermelding.
+  
 </details>
 
 
