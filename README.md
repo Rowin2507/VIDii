@@ -163,10 +163,10 @@ Zwart
   
   
   ### Bevinding 5:
-  Meer interacties mogelijk maken met het apparaat.
+  Meer interacties mogelijk maken met het apparaat en aangeven welke interacties er mogelijk zijn.
   
   #### oplossing:
-  D-PAD en andere knoppen klikbaar maken en waar mogelijk, misschien ook het touchscreen.
+  D-PAD en andere knoppen klikbaar maken en waar mogelijk, misschien ook het touchscreen. Ergens in beeld een soort legenda maken van iconen met de klikbare knoppen op dat moment.
 
 </details>
 
@@ -179,8 +179,8 @@ Zwart
   <summary>Mijn eindresultaat & persoonlijke ontwikkeling</summary>
 
   ### Je uitkomst - karakteristiek screenshot(s):
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="final ontwerp">
-
+  <img src="readme-images/final-gb.png" width="375px" alt="Final ontwerp GameBoy">
+  <img src="readme-images/final-ds.png" width="375px" alt="Final ontwerp DSLite">
 
   ### Dit ging goed/Heb ik geleerd: 
   Korte omschrijving met plaatje(s)
