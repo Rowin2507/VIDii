@@ -14,18 +14,21 @@
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+	<!-- <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> -->
 </head>
 
 <body>
+
+	<!-- WORDT AAN GEWERKT :D ----------- -->
 	<!-- <header>
 		<h1>GameBoy - Rowin Schmidt</h1>
 		<p>Korte omschrijving van je tijdlijn</p>
 	</header> -->
 
-	<!-- <img src="images/temp-gb.png" alt="tempp"> -->
+	<!-- <img src="images/temp-dsl.jpeg" alt="tempp"> -->
 
 	<main>
-		<article>
+		<article> 
 			<!-- GAMEBOY BACKGROUND STUFF -->
 			<section>
 				<!-- GAMEBOY -->
@@ -79,44 +82,52 @@
 				<section>
 					<ul>
 						<li>
-							<button>
-								<!-- D-PAD -->
-								<span>
-									<span></span>
-									<span></span>
-									<span></span>
-								</span>
-								<span>
-									<span></span>
-									<span></span>
-									<span></span>
-								</span>
-								<span>
-									<span></span>
-									<span></span>
-									<span></span>
-								</span>
-								<span>
-									<span></span>
-									<span></span>
-									<span></span>
-								</span>
-								<span></span>
-							</button>
+							<!-- D-PAD -->
+							<ul>
+								<li>
+									<button aria-label="D-PAD left button">
+										<span></span>
+										<span></span>
+										<span></span>
+									</button>
+								</li>
+								<li>
+									<button aria-label="D-PAD up button">
+										<span></span>
+										<span></span>
+										<span></span>
+									</button>
+								</li>
+								<li>
+									<button aria-label="D-PAD right button">
+										<span></span>
+										<span></span>
+										<span></span>
+									</button>
+								</li>
+								<li>
+									<button aria-label="D-PAD down button">
+										<span></span>
+										<span></span>
+										<span></span>
+									</button>
+								</li>
+								<li></li>
+							</ul>
 						</li>
 						<li>
-							<button>
+							<button button-label="B" aria-label="B button">
 								<!-- B-BUTTON -->
 							</button>
-							<button>
+							<button button-label="A" aria-label="A button">
 								<!-- A-BUTTON -->
 							</button>
 						</li>
 						<li>
-							<button>
+							<button button-label="Select" aria-label="Select button">
 								<!-- SELECT-BUTTON -->
 							</button>
-							<button>
+							<button button-label="Start" aria-label="Start button">
 								<!-- START-BUTTON -->
 							</button>
 						</li>
@@ -148,6 +159,174 @@
 				</ol>
 			</section>
 		</article>
+
+		<article class="device-hidden">
+			<!-- DS LITE BACKGROUND STUFF -->
+			<section>
+				<!-- DS LITE -->
+				<section>
+					<!-- TOP HALF -->
+					<section>
+						<div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+						</div>
+						<section>
+							<!-- SCREEN 1 -->
+							<ul>
+								<li>
+									<div>
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 710.58 101.67">
+											<defs><style>.cls-1{fill:#929497;}.cls-2{fill:#221f1f;}.cls-3{fill:#221e1f;}</style></defs>
+											<path id="path100608" class="cls-1" d="M451.85,91.42a2.05,2.05,0,0,1-2,2h-37.8a2.05,2.05,0,0,1-2-2V64.11a2,2,0,0,1,2-1.94h37.8a2,2,0,0,1,2,1.94ZM450.21,54H411.74a10.14,10.14,0,0,0-10.12,10.15V91.52a10.21,10.21,0,0,0,10.12,10.15h38.47a10.2,10.2,0,0,0,10.12-10.15V64.11A10.14,10.14,0,0,0,450.21,54"/>
+											<path id="path100618" class="cls-2" d="M8.83,13V48.24H0V.54H7.54L43.3,35.29V.54H52v47.7h-6.9L8.83,13"/>
+											<path id="path100622" class="cls-3" d="M97.34,13V48.24H88.51V.54h7.54L131.8,35.29V.54h8.72v47.7h-6.89L97.34,13"/>
+											<path id="path100626" class="cls-3" d="M280.79,13V48.24H272V.54h7.53l35.76,34.75V.54H324v47.7h-6.89L280.79,13"/>
+											<path id="path100630" class="cls-3" d="M73,.54h1.63v47.7H65.84V.54H73"/>
+											<path id="path100634" class="cls-3" d="M200.65.54h1.62v8.2H181v39.5h-9.18V8.74H150.53V.54h50.12"/>
+											<path id="path100638" class="cls-3" d="M257.21.54h1.65v8.2H221V19.43h29.27v8.2H221V40h37.84v8.2H212.27V.54h44.94"/>
+											<path id="path100642" class="cls-3" d="M373.06,40H345.94V8.74h27.12c8.48,0,11.49,8.42,11.49,15.65S381.54,40,373.06,40ZM387.54,7.55c-3.45-4.64-8.56-7-14.73-7H337.43v47.7h35.38a17.84,17.84,0,0,0,14.73-7c3.24-4.21,4.95-10,4.95-16.84s-1.71-12.63-4.95-16.84"/>
+											<path id="path100646" class="cls-3" d="M451.85,38.1a2,2,0,0,1-2,1.94h-37.8a2,2,0,0,1-2-1.94V10.68a2,2,0,0,1,2-1.94h37.8a2,2,0,0,1,2,1.94ZM450.21.54H411.74a10.14,10.14,0,0,0-10.12,10.14V38.1a10.14,10.14,0,0,0,10.12,10.14h38.47A10.13,10.13,0,0,0,460.33,38.1V10.68A10.13,10.13,0,0,0,450.21.54"/>
+											<path id="path100656" class="cls-3" d="M610.49,81.49c9.15,3.67,28.48,6.58,43.57,6.58,16.51,0,23.34-5.61,23.34-12.74,0-6.47-6.34-10.14-24.57-16.83-24.38-9-42.27-16.08-42.27-32.17C610.56,9.82,632.09,0,664.88,0c17.62,0,23.66,1.08,34.84,3.13l.09,15.76c-11-2.05-20.72-5.61-35.84-5.61-16.21,0-23.12,5.18-23.12,10.46,0,7.67,10.64,11.34,29.3,18,26,9.28,40.43,16.4,40.43,32,0,16.19-18.1,27.85-58.92,27.85a230.49,230.49,0,0,1-41.17-3.24V81.49"/>
+											<path id="path100660" class="cls-3" d="M523.61,13.92H504.18V87.53h19.43c29.82,0,48.63-12.84,48.63-36.7S553.43,13.92,523.61,13.92Zm52.14,80.41c-9.61,4.32-27.78,7.12-43.67,7.12H471.36V.22h60.72C548,.22,566.14,3,575.77,7.34c23.39,10.58,31,27.52,31,43.49s-7.56,32.92-31,43.5"/>
+										</svg>
+										<div></div>
+										<div></div>
+										<div></div>
+										<div></div>
+										<div></div>
+										<div></div>
+										<div></div>
+										<div></div>
+									</div>
+									<img src="images/nintendo-logo-gray.svg" alt="Nintendo logo">
+								</li>
+							</ul>
+						</section>
+						<div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+						</div>
+					</section>
+				</section>
+				<section>
+					<!-- MIDDLE HALF -->
+					<section>
+						<div>
+							<span>Mic.</span>
+						</div>
+						<div>
+							<div></div>
+							<div></div>
+						</div>
+					</section>
+				</section>
+				<section>
+					<!-- BOTTOM HALF -->
+					<section>
+						<!-- D-PAD -->
+						<ul>
+							<li>
+								<button aria-label="D-PAD left button"></button>
+							</li>
+							<li>
+								<button aria-label="D-PAD up button"></button>
+							</li>
+							<li>
+								<button aria-label="D-PAD right button"></button>
+							</li>
+							<li>
+								<button aria-label="D-PAD down button"></button>
+							</li>
+							<li></li>
+						</ul>
+					</section>
+					<section>
+						<section>
+							<!-- SCREEN 2 -->
+							<ul>
+								<li>
+									<ul>
+										<li>
+											<img src="images/warning-icon.svg" alt="Warning icon">
+											<h3>Warning - health and safety</h3>
+										</li>
+										<li>
+											<p>Before playing, read the health and safety precautions booklet for important information about your health and safety.</p>
+										</li>
+										<li>
+											<p>To get an extra copy for your region. go online at</p>
+											<strong>www.nintendo.com/healthsafety/</strong>
+										</li>
+										<li>
+											<p>Touch the Touch Screen to continue.</p>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</section>
+					</section>
+					<section>
+						<section>
+							<!-- Y,X,A,B BUTTONS -->
+							<ol>
+								<li>
+									<button aria-label="Y button">Y</button>
+								</li>
+								<li>
+									<button aria-label="X button">X</button>
+								</li>
+								<li>
+									<button aria-label="A button">A</button>
+								</li>
+								<li>
+									<button aria-label="B button">B</button>
+								</li>
+							</ol>
+						</section>
+						<section>
+							<!-- START / SELECT BUTTON -->
+							<ul>
+								<li>
+									<button button-label="Start" aria-label="Start button">
+										<!-- START BUTTON -->
+									</button>
+								</li>
+								<li>
+									<button button-label="Select" aria-label="Select button">
+										<!-- SELECT BUTTON -->
+									</button>
+								</li>
+							</ul>
+						</section>
+					</section>
+				</section>
+			</section>
+			<section>
+				<!-- DS LITE INTERFACE -->
+				<ol>
+					<li>
+						<button>Nintendo GameBoy (1989)</button>
+					</li>
+					<li class="active">
+						<button>Nintendo DS Lite (2006)</button>
+					</li>
+					<li>
+						<button>Nintendo Switch (2017)</button>
+					</li>
+				</ol>
+			</section>
+		</article>
+
+
 
 	</main>
 

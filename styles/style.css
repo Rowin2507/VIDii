@@ -1,17 +1,21 @@
 /* VARIABLES -------------------------------- */
 :root {
   --gameboy1-width: 360;
+  --ds-lite-width: 600;
+
+  --primary-font: 'Open Sans', sans-serif;
   --gameboy1-font2: 'Exo 2', sans-serif;
   --gameboy1-font3: 'Press Start 2P', cursive;
+  --font-bebas-neue: 'Bebas Neue', cursive;
 
   --color-white: #FFFFFF;
-  --color-gray1: #EBEBEB;
-
+  --color-black: #000000;
 
   --color-gb1-gray1: #BBBCC3;
   --color-gb1-gray2: #5E6A7D;
   --color-gb1-gray3: #717B8F;
   --color-gb1-gray4: #ADAEB4;
+  --color-gb1-light-gray: #EFEFEF;
   --color-gb1-dark1: #181D1C;
   --color-gb1-dark2: #2C3133;
   --color-gb1-dark3: #383B3D;
@@ -20,9 +24,24 @@
   --color-gb1-blue: #2E3192;
   --color-gb1-dark-blue: #2E2063;
   --color-gb1-red: #CC1613;
+  --color-gb1-red2: #660c0c;
   --color-gb1-green1: #486010;
-  --color-gb1-green2: #293D1D
-
+  --color-gb1-green2: #293D1D;
+  
+  --color-dsl-dark: #282828;
+  --color-dsl-dark2: #1E1E1E;
+  --color-dsl-dark3: #191919;
+  --color-dsl-dark4: #111111;
+  --color-dsl-dark5: #0A0A0A;
+  --color-dsl-darkgray: #383838;
+  --color-dsl-gray: #6F6E73;
+  --color-dsl-gray2: #5A5A5B;
+  --color-dsl-gray3: #4C4C4C;
+  --color-dsl-lightgray: #929497;
+  --color-dsl-green: #40CE00;
+  --color-dsl-orange: #FF8500;
+  --color-dsl-blue: #0049FF;
+  --color-dsl-interface-primary: #437892;
 }
 
 
@@ -36,6 +55,37 @@
 }
 
 
+
+/* FONTS -------------------------------- */
+/* BEBAS NEUE ---------- */
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('../fonts/bebas-neue/bebasneue_light-webfont.woff2') format('woff2'),
+       url('../fonts/bebas-neue/bebasneue_light-webfont.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('../fonts/bebas-neue/bebasneue_regular-webfont.woff2') format('woff2'),
+       url('../fonts/bebas-neue/bebasneue_regular-webfont.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('../fonts/bebas-neue/bebasneue_bold-webfont.woff2') format('woff2'),
+       url('../fonts/bebas-neue/bebasneue_bold-webfont.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+
+
+
+
+/* GENERAL STYLING -------------------------------- */
 /* GENERAL STYLING -------------------------------- */
 html, body {
   height:100vh;
@@ -43,41 +93,52 @@ html, body {
   overflow: hidden;
 }
 body {
-  /* display: grid;
-  place-items: center; */
-  font-family: 'Open Sans', sans-serif;
+  font-family: var(--primary-font);
 }
-h1 {
-  color:crimson;
+button {
+  font-family: var(--primary-font);
+  font-size: 1em;
+  appearance: none;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
 }
-
-
-
-body > img {
-  position: absolute;
-  left: 50%;
-  top: 0%;
-  transform: translateX(-50%);
-}
-/* button:not([disabled]) {
-  cursor:pointer;
-} */
-
-
-
-
-
-/* GAMEBOY -------------------------------- */
 main > article {
-  position: relative;
+  position: absolute;
+  left: 0;
+  top: 0;
   height: 100vh;
   width: 100%;
   display: grid;
   place-items: center; 
+  opacity: 1;
+  visibility: visible;
+  transition: 750ms;
 }
+main > article.device-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+main > article.device-hidden > section:nth-of-type(1) {
+  transform: scale(8);
+}
+
+/* TEMP (IS MORGEN WEG) ()())()()()()() */
+body > img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-49.5%) translateY(-50%);
+  width: calc(var(--ds-lite-width) * 1.085px);
+}
+
+
+/* GAMEBOY -------------------------------- */
+/* GAMEBOY -------------------------------- */
 main > article:nth-of-type(1) {
-  /* background-color: red; */
+  background-color: var(--color-gb1-light-gray);
 }
+
 /* GAMEBOY ITSELF ---------- */
 main > article:nth-of-type(1) > section:nth-of-type(1) {
   position: relative;
@@ -132,6 +193,8 @@ main > article:nth-of-type(1) > section:nth-of-type(1) > div > div:nth-of-type(2
   box-shadow: calc(var(--gameboy1-width) * 0.002px) calc(var(--gameboy1-width) * 0.002px) calc(var(--gameboy1-width) * 0.005px) rgb(0 0 0 / 0.35),
               inset 0 calc(var(--gameboy1-width) * 0.002px) calc(var(--gameboy1-width) * 0.01px) rgb(255 255 255 / 0.75);
 }
+
+/* GAMEBOY SCREEN SECTION ---------- */
 main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(1) {
   display: flex;
   flex-direction: column;
@@ -180,14 +243,22 @@ main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(1) 
   position: absolute;
   top: 0;
   left: 15%;
-  background-color: var(--color-gb1-red);
   width: calc(var(--gameboy1-width) * 0.035px);
   aspect-ratio: 1 / 1;
+  background-color: var(--color-gb1-red2);
   border-radius: 50%;
-  box-shadow: inset calc(var(--gameboy1-width) * 0.0025px) calc(var(--gameboy1-width) * 0.0025px) calc(var(--gameboy1-width) * 0.005px) rgb(0 0 0 / 0.5),
+  box-shadow: inset calc(var(--gameboy1-width) * 0.005px) calc(var(--gameboy1-width) * 0.005px) calc(var(--gameboy1-width) * 0.005px) rgb(0 0 0 / 0.75),
               inset calc(var(--gameboy1-width) * -0.0025px) calc(var(--gameboy1-width) * -0.0025px) calc(var(--gameboy1-width) * 0.005px) rgb(255 255 255 / 0.35);
   transform: translateY(-165%);
+  transition: 250ms;
 }
+main > article.device-charging:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(1) > span:last-of-type::before {
+  background-color: var(--color-gb1-red);
+  box-shadow: inset calc(var(--gameboy1-width) * 0.005px) calc(var(--gameboy1-width) * 0.005px) calc(var(--gameboy1-width) * 0.005px) rgb(0 0 0 / 0.75),
+              inset calc(var(--gameboy1-width) * -0.0025px) calc(var(--gameboy1-width) * -0.0025px) calc(var(--gameboy1-width) * 0.005px) rgb(255 255 255 / 0.35);
+}
+
+/* GAMEBOY SCREEN ---------- */
 main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(1) > section {
   background-color: var(--color-gb1-green1);
   width: 63%;
@@ -201,6 +272,11 @@ main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(1) 
   height: 100%;
   width: 100%;
   overflow: hidden;
+  transition: opacity 500ms;
+  transition-delay: 350ms;
+}
+main > article.menu-active:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(1) > section ul {
+  opacity: 0;
 }
 main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(1) > section ul li {
   display: grid;
@@ -225,21 +301,23 @@ main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(2) 
 main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(2) img {
   width: 67%;
 }
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul {
+
+/* GAMEBOY CONTROLS ---------- */
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
   margin-top: 14.5%;
   padding: 0 7% 0 11%;
 }
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1) {
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(1) {
   position: relative;
   display: grid;
   place-items: center;
   height: calc(var(--gameboy1-width) * 0.255px);
   aspect-ratio: 1 / 1;
 }
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1)::before {
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(1)::before {
   content: '';
   position: absolute;
   top: 0;
@@ -251,7 +329,7 @@ main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) 
   transform: translateX(-50%);
   filter: blur(calc(var(--gameboy1-width) * 0.0015px));
 }
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1)::after {
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(1)::after {
   content: '';
   position: absolute;
   top: 50%;
@@ -263,69 +341,44 @@ main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) 
   transform: translateY(-50%);
   filter: blur(calc(var(--gameboy1-width) * 0.0015px));
 }
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1) button {
+
+/* GAMEBOY D-PAD ---------- */
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(1) > ul {
   position: relative;
   height: 91%;
   aspect-ratio: 1 / 1;
   background-color: transparent;
   border: none;
-
+  
   display: grid;
   place-items: center;
 }
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1) button > span {
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(1) > ul > li {
   position: absolute;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10%;
+  display: grid;
+  place-items: center;
   width: calc(100% / 3);
   aspect-ratio: 1 / 1;
   background-color: var(--color-gb1-dark2);
   z-index: 1;
 }
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1) button > span:nth-of-type(1) {
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(1) > ul > li:nth-of-type(1) {
   justify-self: start;
-  justify-content: flex-end;
-  padding-right: 2.5%;
-  z-index: 2;
   border-radius: 15% 0 0 15%;
-  box-shadow: inset 0 calc(var(--gameboy1-width) * -0.019px) calc(var(--gameboy1-width) * 0.015px) calc(var(--gameboy1-width) * -0.015px) rgb(0 0 0 / 0.45),
-              inset calc(var(--gameboy1-width) * 0.01px) calc(var(--gameboy1-width) * 0.0045px) calc(var(--gameboy1-width) * 0.0075px) calc(var(--gameboy1-width) * -0.003px) rgb(155 155 155 / 0.35);
 }
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1) button > span:nth-of-type(2) {
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(1) > ul > li:nth-of-type(2) {
   align-self: start;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  padding-bottom: 2.5%;
   border-radius: 15% 15% 0 0;
-  box-shadow: inset calc(var(--gameboy1-width) * -0.019px) 0 calc(var(--gameboy1-width) * 0.015px) calc(var(--gameboy1-width) * -0.015px) rgb(0 0 0 / 0.45),
-              inset calc(var(--gameboy1-width) * 0.01px) calc(var(--gameboy1-width) * 0.0055px) calc(var(--gameboy1-width) * 0.0075px) calc(var(--gameboy1-width) * -0.003px) rgb(155 155 155 / 0.35);
 }
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1) button > span:nth-of-type(3) {
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(1) > ul > li:nth-of-type(3) {
   justify-self: end;
-  justify-content: flex-start;
-  padding-left: 2.5%;
   border-radius: 0 15% 15% 0;
-  box-shadow: inset calc(var(--gameboy1-width) * -0.0045px) calc(var(--gameboy1-width) * -0.01px) calc(var(--gameboy1-width) * 0.0075px) calc(var(--gameboy1-width) * -0.002px) rgb(0 0 0 / 0.275),
-              inset 0 calc(var(--gameboy1-width) * 0.02px) calc(var(--gameboy1-width) * 0.015px) calc(var(--gameboy1-width) * -0.025px) rgb(255 255 255 / 0.45);
 }
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1) button > span:nth-of-type(4) {
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(1) > ul > li:nth-of-type(4) {
   align-self: end;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding-top: 2.5%;
   border-radius: 0 0 15% 15%;
-  box-shadow: inset calc(var(--gameboy1-width) * -0.0045px) calc(var(--gameboy1-width) * -0.01px) calc(var(--gameboy1-width) * 0.0075px) calc(var(--gameboy1-width) * -0.002px) rgb(0 0 0 / 0.275),
-              inset calc(var(--gameboy1-width) * 0.025px) 0 calc(var(--gameboy1-width) * 0.0125px) calc(var(--gameboy1-width) * -0.0215px) rgb(255 255 255 / 0.245);
 }
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1) button > span:nth-of-type(5) {
-  display: grid;
-  place-items: center;
-}
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1) button > span:nth-of-type(5)::after {
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(1) > ul > li:nth-of-type(5)::after {
   content: '';
   height: 80%;
   aspect-ratio: 1 / 1;
@@ -335,8 +388,56 @@ main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) 
               calc(var(--gameboy1-width) * 0.0025px) calc(var(--gameboy1-width) * 0.0015px) calc(var(--gameboy1-width) * 0.0035px) rgb(255 255 255 / 0.075),
               calc(var(--gameboy1-width) * -0.0025px) calc(var(--gameboy1-width) * -0.0015px) calc(var(--gameboy1-width) * 0.0025px) rgb(0 0 0 / 0.25);
 }
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1) button > span:nth-of-type(1) span,
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1) button > span:nth-of-type(3) span {
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(1) > ul > li button {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10%;
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+  cursor: pointer;
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(1) > ul > li button:hover,
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(1) > ul > li button:focus {
+  background-color: red;
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(1) > ul > li:nth-of-type(1) button {
+  justify-content: flex-end;
+  padding-right: 2.5%;
+  z-index: 2;
+  box-shadow: inset 0 calc(var(--gameboy1-width) * -0.019px) calc(var(--gameboy1-width) * 0.015px) calc(var(--gameboy1-width) * -0.015px) rgb(0 0 0 / 0.45),
+              inset calc(var(--gameboy1-width) * 0.01px) calc(var(--gameboy1-width) * 0.0045px) calc(var(--gameboy1-width) * 0.0075px) calc(var(--gameboy1-width) * -0.003px) rgb(155 155 155 / 0.35);
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(1) > ul > li:nth-of-type(2) button {
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 2.5%;
+  box-shadow: inset calc(var(--gameboy1-width) * -0.019px) 0 calc(var(--gameboy1-width) * 0.015px) calc(var(--gameboy1-width) * -0.015px) rgb(0 0 0 / 0.45),
+              inset calc(var(--gameboy1-width) * 0.01px) calc(var(--gameboy1-width) * 0.0055px) calc(var(--gameboy1-width) * 0.0075px) calc(var(--gameboy1-width) * -0.003px) rgb(155 155 155 / 0.35);
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(1) > ul > li:nth-of-type(3) button {
+  justify-content: flex-start;
+  padding-left: 2.5%;
+  box-shadow: inset calc(var(--gameboy1-width) * -0.0045px) calc(var(--gameboy1-width) * -0.01px) calc(var(--gameboy1-width) * 0.0075px) calc(var(--gameboy1-width) * -0.002px) rgb(0 0 0 / 0.275),
+              inset 0 calc(var(--gameboy1-width) * 0.02px) calc(var(--gameboy1-width) * 0.015px) calc(var(--gameboy1-width) * -0.025px) rgb(255 255 255 / 0.45);
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(1) > ul > li:nth-of-type(4) button {
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 2.5%;
+  box-shadow: inset calc(var(--gameboy1-width) * -0.0045px) calc(var(--gameboy1-width) * -0.01px) calc(var(--gameboy1-width) * 0.0075px) calc(var(--gameboy1-width) * -0.002px) rgb(0 0 0 / 0.275),
+              inset calc(var(--gameboy1-width) * 0.025px) 0 calc(var(--gameboy1-width) * 0.0125px) calc(var(--gameboy1-width) * -0.0215px) rgb(255 255 255 / 0.245);
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(1) > ul > li:nth-of-type(5) button {
+  display: grid;
+  place-items: center;
+}
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(1) > ul > li:nth-of-type(1) button span,
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(1) > ul > li:nth-of-type(3) button span {
   background-color: rgb(255 255 255 / 0.015);
   height: 70%;
   aspect-ratio: 1 / 3.5;
@@ -345,8 +446,8 @@ main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) 
               calc(var(--gameboy1-width) * 0.002px) calc(var(--gameboy1-width) * 0.002px) calc(var(--gameboy1-width) * 0.003px) rgb(75 75 75 / 0.3);
   opacity: 0.65;
 }
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1) button > span:nth-of-type(2) span,
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(1) button > span:nth-of-type(4) span {
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(1) > ul > li:nth-of-type(2) button span,
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(1) > ul > li:nth-of-type(4) button span {
   background-color: rgb(255 255 255 / 0.015);
   width: 70%;
   aspect-ratio: 3.5 / 1;
@@ -355,7 +456,9 @@ main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) 
               calc(var(--gameboy1-width) * 0.002px) calc(var(--gameboy1-width) * 0.002px) calc(var(--gameboy1-width) * 0.003px) rgb(75 75 75 / 0.3);
   opacity: 0.65;
 }
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(2) {
+
+/* GAMEBOY PRIMARY BUTTONS ---------- */
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(2) {
   flex: 1;
   display: flex;
   flex-direction: row;
@@ -364,7 +467,7 @@ main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) 
   height: fit-content;
   transform: rotate(-25deg) translateX(-8.5%) translateY(98%);
 }
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(2) button {
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(2) button {
   position: relative;
   background-color: var(--color-gb1-burgundy);
   width: 22%;
@@ -377,7 +480,7 @@ main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) 
               calc(var(--gameboy1-width) * 0.0065px) calc(var(--gameboy1-width) * 0.0065px) calc(var(--gameboy1-width) * 0.01px) rgb(0 0 0 / 0.85);
   transform-style: preserve-3d;
 }
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(2) button:first-of-type:before {
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(2) button:first-of-type:before {
   content: '';
   position: absolute;
   left: -25%;
@@ -389,8 +492,8 @@ main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) 
   box-shadow: inset calc(var(--gameboy1-width) * 0.005px) calc(var(--gameboy1-width) * 0.025px) calc(var(--gameboy1-width) * 0.05px) rgb(0 0 0 / 0.125),
               inset calc(var(--gameboy1-width) * -0.025px) calc(var(--gameboy1-width) * -0.025px) calc(var(--gameboy1-width) * 0.05px) rgb(255 255 255 / 0.2);
 }
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(2) button::after {
-  content: 'B';
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(2) button::after {
+  content: attr(button-label);
   position: absolute;
   left: 50%;
   bottom: -65%;
@@ -402,17 +505,16 @@ main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) 
   letter-spacing: .075em;
   color: var(--color-gb1-blue);
 }
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(2) button:last-of-type:after {
-  content: 'A';
-}
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(3) {
+
+/* GAMEBOY SECONDARY BUTTONS ---------- */
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(3) {
   width: 100%;
   margin-top: 10%;
   display: flex;
   justify-content: center;
   gap: 5%;
 }
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(3) button {
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(3) button {
   position: relative;
   background-color: var(--color-gb1-gray3);
   width: 15%;
@@ -426,7 +528,7 @@ main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) 
   transform: rotate(-25deg) translateX(-35%);
   transform-style: preserve-3d;
 }
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(3) button:before {
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(3) button:before {
   content: '';
   position: absolute;
   left: -11%;
@@ -438,8 +540,8 @@ main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) 
   box-shadow: inset calc(var(--gameboy1-width) * 0.005px) calc(var(--gameboy1-width) * 0.025px) calc(var(--gameboy1-width) * 0.05px) rgb(0 0 0 / 0.2),
               inset calc(var(--gameboy1-width) * -0.025px) calc(var(--gameboy1-width) * -0.025px) calc(var(--gameboy1-width) * 0.075px) rgb(255 255 255 / 0.75);
 }
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(3) button::after {
-  content: 'Select';
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(3) button::after {
+  content: attr(button-label);
   position: absolute;
   left: 50%;
   bottom: -100%;
@@ -450,27 +552,26 @@ main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) 
   text-transform: uppercase;
   letter-spacing: .075em;
   color: var(--color-gb1-blue);
+  pointer-events: none;
 }
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(3) button:last-of-type {
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(3) button:last-of-type {
   cursor: pointer;
   transition: 250ms box-shadow;
 }
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(3) button:last-of-type:hover {
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(3) button:last-of-type:hover {
   box-shadow: inset calc(var(--gameboy1-width) * 0.005px) calc(var(--gameboy1-width) * 0.0085px) calc(var(--gameboy1-width) * 0.02px) rgb(255 255 255 / 0.25),
               inset calc(var(--gameboy1-width) * -0.0025px) calc(var(--gameboy1-width) * -0.0025px) calc(var(--gameboy1-width) * 0.01px) rgb(0 0 0 / 0.5),
               0 0 calc(var(--gameboy1-width) * 0.003px) calc(var(--gameboy1-width) * 0.004px) rgb(0 0 0 / 0.65),
               calc(var(--gameboy1-width) * 0.0045px) calc(var(--gameboy1-width) * 0.0045px) calc(var(--gameboy1-width) * 0.0125px) rgb(0 0 0 / 0.65);
 }
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(3) button:last-of-type:after {
-  content: 'Start';
-  pointer-events: none;
-}
-main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) ul li:nth-of-type(3) button:last-of-type.pressed {
+main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(3) button:last-of-type:active {
   box-shadow: inset calc(var(--gameboy1-width) * 0.005px) calc(var(--gameboy1-width) * 0.0085px) calc(var(--gameboy1-width) * 0.025px) rgb(0 0 0 / 0.075),
               inset calc(var(--gameboy1-width) * -0.0025px) calc(var(--gameboy1-width) * -0.0025px) calc(var(--gameboy1-width) * 0.015px) rgb(0 0 0 / 0.4),
               0 0 calc(var(--gameboy1-width) * 0.003px) calc(var(--gameboy1-width) * 0.004px) rgb(0 0 0 / 0.65),
               calc(var(--gameboy1-width) * 0.0045px) calc(var(--gameboy1-width) * 0.0045px) calc(var(--gameboy1-width) * 0.0125px) rgb(0 0 0 / 0);
 }
+
+/* GAMEBOY SPEAKER GRILL ---------- */
 main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(4) > div {
   position: relative;
   list-style: none;
@@ -515,6 +616,7 @@ main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(4) 
   transform: translateZ(-1px);
   border-radius: calc(var(--gameboy1-width) * 0.0025px);
 }
+
 /* GAMEBOY INTERFACE ---------- */
 main > article:nth-of-type(1) > section:nth-of-type(2) {
   position: absolute;
@@ -557,9 +659,6 @@ main > article:nth-of-type(1) > section:nth-of-type(2) ol li button {
   position: relative;
   padding: 0.5em 0.75em;
   width: 100%;
-  appearance: none;
-  background-color: transparent;
-  border: none;
   font-family: var(--gameboy1-font3);
   font-size: 5vh;
   line-height: 155%;
@@ -567,7 +666,7 @@ main > article:nth-of-type(1) > section:nth-of-type(2) ol li button {
   cursor: pointer;
   transition: 250ms;
 }
-main > article:nth-of-type(1) > section:nth-of-type(2) ol li button:hover::before,
+main > article:nth-of-type(1) > section:nth-of-type(2) ol li button:active::before,
 main > article:nth-of-type(1) > section:nth-of-type(2) ol li.active button::before {
   content: '>';
   position: absolute;
@@ -576,7 +675,7 @@ main > article:nth-of-type(1) > section:nth-of-type(2) ol li.active button::befo
   transform: translateX(-115%) translateY(-50%);
   color: var(--color-gb1-green2);
 }
-main > article:nth-of-type(1) > section:nth-of-type(2) ol li button:hover::after,
+main > article:nth-of-type(1) > section:nth-of-type(2) ol li button:active::after,
 main > article:nth-of-type(1) > section:nth-of-type(2) ol li.active button::after {
   content: '<';
   position: absolute;
@@ -610,6 +709,1011 @@ main > article:nth-of-type(1) > section:nth-of-type(2) ol li.active button:hover
 
 
 
+/* DS LITE -------------------------------- */
+main > article:nth-of-type(2) {
+  background-color: var(--color-dsl-dark2);
+}
+
+/* DS LITE ITSELF ---------- */
+main > article:nth-of-type(2) > section:nth-of-type(1) {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 40em;
+  aspect-ratio: 4 / 4.2;
+  border-radius: 1.5em;
+  font-size: calc(var(--ds-lite-width) * 0.025px);
+  filter: drop-shadow(0.75em 0.5em 1em rgb(0 0 0 / 0.35));
+  overflow: hidden;        
+  transform-origin: center 19.5%;
+  transition: transform 750ms ease-in-out;    
+  transition-delay: 275ms;
+}
+main > article.menu-active:nth-of-type(2) > section:nth-of-type(1) {
+  transform: scale(8);
+}
+
+/* DS LITE TOP HALF ---------- */
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) {
+  flex: 1;
+  z-index: 2;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2% 1.75% 0 1.75%;
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-dsl-dark);
+  background-image: linear-gradient(-45deg, var(--color-dsl-dark) 50%, var(--color-dsl-darkgray) 100%);
+  border-left: 0.2em solid var(--color-dsl-dark3);
+  border-top: 0.2em solid var(--color-dsl-dark3);
+  border-right: 0.2em solid var(--color-dsl-dark3);
+  border-radius: 1.5em 1.5em .85em .85em / 1.5em 1.5em .25em .25em;
+  box-shadow: inset -0.45em 0 .15em -0.15em rgb(0 0 0 / 0.65),
+              inset 0.5em 1em 1.5em rgb(0 0 0 / 0.35),
+              inset 0.15em 0.15em .1em 0 rgb(255 255 255 / 0.45),
+              inset 0 1em 1.25em -0.75em rgb(0 0 0 / 0.95),
+              inset -1.5em 0 1.25em -0.75em rgb(255 255 255 / 0.45);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section::before,
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8.5%;
+  height: 14.5%;
+  aspect-ratio: 1 / 7;
+  background-color: var(--color-dsl-dark);
+  border-radius: 0 0.1em 0.1em 0;
+  box-shadow: 0.05em 0.05em 0.3em .1em rgb(0 0 0 / 0.3),
+              -0.35em 0.1em 0.3em .05em rgb(0 0 0 / 0.65),
+              inset -0.05em 0 .4em rgb(255 255 255 / 0.075);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section::after {
+  left: auto;
+  right: 0;
+  background-color: var(--color-dsl-dark2);
+  border-radius: 0.1em 0 0 0.1em;
+  box-shadow: 0.05em 0.05em 0.3em .1em rgb(0 0 0 / 0.3),
+              -0.01em 0.1em 0.2em .025em rgb(0 0 0 / 0.75),
+              inset -0.05em 0 .4em rgb(255 255 255 / 0.15);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  place-items: start center;
+  height: 10%;
+  aspect-ratio: 1.9 / 1;
+  transform: translateY(15%);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > div div {
+  background-color: var(--color-dsl-dark5);
+  height: 52%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  box-shadow: inset -0.025em -0.025em .1em rgb(255 255 255 / 0.35);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > div div:nth-of-type(1) {
+  place-self: start start;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > div div:nth-of-type(3) {
+  place-self: start end;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > div div:nth-of-type(4) {
+  place-self: end start;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > div div:nth-of-type(5) {
+  place-self: end center;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > div div:nth-of-type(6) {
+  place-self: end end;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > div::before,
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > div::after {
+  content: '';
+  position: absolute;
+  right: 15%;
+  top: 0;
+  height: 60%;
+  aspect-ratio: 1 / 1;
+  background-color: var(--color-dsl-dark4);
+  border-radius: 25%;
+  box-shadow: inset -0.025em -0.025em .1em rgb(255 255 255 / 0.3),
+              inset 0.025em 0.025em .1em rgb(0 0 0 / 0.75);
+  opacity: 0.5;
+  transform: translateY(-685%);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > div:first-of-type::before,
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > div:first-of-type::after {
+  background-color: var(--color-dsl-dark2);
+  opacity: 0.55;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > div:last-of-type:before {
+  right: auto;
+  left: 15%;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > div::after {
+  top: auto;
+  bottom: 10%;
+  transform: translateY(685%);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > div:last-of-type:after {
+  right: auto;
+  left: 15%;
+}
+
+/* DS LITE TOP HALF - SCREEN ---------- */
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section {
+  position: relative;
+  height: 75%;
+  aspect-ratio: 4 / 3;
+  background-color: var(--color-black);
+  border-radius: 0.15em;
+  box-shadow: inset 0 0 0.35em rgb(0 0 0 / 0.75);
+  animation-name: ds-lite-boot-background;
+  animation-duration: 500ms;
+  animation-delay: 2s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+  transform-style: preserve-3d;
+}
+main > article.device-visible:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section {
+  animation-play-state: running;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section > ul {
+  list-style: none;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section > ul li:first-of-type {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  width: 100%;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section > ul li:first-of-type > div {
+  position: relative;
+  width: 80%;
+  transform: translateY(-50%);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section > ul li:first-of-type div svg {
+  width: 100%;
+  overflow: visible;
+  opacity: 0;
+  animation-name: ds-lite-boot-fade-logo;
+  animation-duration: 500ms;
+  animation-delay: 2250ms;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+}
+main > article.device-visible:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section > ul li:first-of-type div svg {
+  animation-play-state: running;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section > ul li:first-of-type div svg #path100646 {
+  opacity: 0;
+  animation-name: ds-lite-boot-upper-square-top;
+  animation-duration: 750ms;
+  animation-delay: 2500ms;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+}
+main > article.device-visible:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section > ul li:first-of-type div svg #path100646 {
+  animation-play-state: running;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section > ul li:first-of-type div svg #path100608 {
+  opacity: 0;
+  animation-name: ds-lite-boot-upper-square-bottom;
+  animation-duration: 750ms;
+  animation-delay: 2500ms;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+}
+main > article.device-visible:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section > ul li:first-of-type div svg #path100608 {
+  animation-play-state: running;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section > ul li:first-of-type div div {
+  position: absolute;
+  top: 65%;
+  right: 27.5%;
+  width: 3.5em;
+  aspect-ratio: 1.25 / 1;
+  border-radius: 0.4em;
+  border: 0.4em solid var(--color-dsl-gray);
+  z-index: -1;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section > ul li:first-of-type div div:nth-of-type(2) {
+  top: -91%;
+  width: 3.5em;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section > ul li:first-of-type div div:nth-of-type(1),
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section > ul li:first-of-type div div:nth-of-type(2) {
+  opacity: 0;
+  animation-name: ds-lite-boot-upper-square-2;
+  animation-duration: 850ms;
+  animation-delay: 3050ms;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  transform-origin: center;
+  animation-play-state: paused;
+}
+main > article.device-visible:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section > ul li:first-of-type div div:nth-of-type(1),
+main > article.device-visible:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section > ul li:first-of-type div div:nth-of-type(2) {
+  animation-play-state: running;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section > ul li:first-of-type div div:nth-of-type(3) {
+  top: 0;
+  right: 35%;
+  width: 1.5em;
+  border-radius: 0.25em;
+  border: 0.2em solid var(--color-dsl-lightgray);
+  opacity: 0;
+  animation-name: ds-lite-boot-small-square-1;
+  animation-duration: 950ms;
+  animation-delay: 3150ms;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+  transform-origin: center;
+}
+main > article.device-visible:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section > ul li:first-of-type div div:nth-of-type(3) {
+  animation-play-state: running;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section > ul li:first-of-type div div:nth-of-type(4) {
+  top: -12.5%;
+  right: 37.5%;
+  width: 1.5em;
+  border-radius: 0.25em;
+  border: 0.2em solid var(--color-dsl-lightgray);
+  opacity: 0;
+  animation-name: ds-lite-boot-small-square-2;
+  animation-duration: 950ms;
+  animation-delay: 3300ms;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+  transform-origin: center;
+}
+main > article.device-visible:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section > ul li:first-of-type div div:nth-of-type(4) {
+  animation-play-state: running;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section > ul li:first-of-type div div:nth-of-type(5) {
+  top: 47.5%;
+  right: 35%;
+  width: 1.4em;
+  border-radius: 0.225em;
+  border: 0.185em solid var(--color-dsl-lightgray);
+  opacity: 0;
+  animation-name: ds-lite-boot-small-square-3;
+  animation-duration: 1150ms;
+  animation-delay: 3300ms;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+  transform-origin: center;
+}
+main > article.device-visible:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section > ul li:first-of-type div div:nth-of-type(5) {
+  animation-play-state: running;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section > ul li:first-of-type div div:nth-of-type(6) {
+  top: 47.5%;
+  right: 35%;
+  width: 1.4em;
+  border-radius: 0.225em;
+  border: 0.185em solid var(--color-dsl-lightgray);
+  opacity: 0;
+  animation-name: ds-lite-boot-small-square-4;
+  animation-duration: 1150ms;
+  animation-delay: 3300ms;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+  transform-origin: center;
+}
+main > article.device-visible:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section > ul li:first-of-type div div:nth-of-type(6) {
+  animation-play-state: running;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section > ul li:first-of-type div div:nth-of-type(7) {
+  top: 47.5%;
+  right: 35%;
+  width: 1.4em;
+  border-radius: 0.225em;
+  border: 0.185em solid var(--color-dsl-lightgray);
+  opacity: 0;
+  animation-name: ds-lite-boot-small-square-5;
+  animation-duration: 1s;
+  animation-delay: 3500ms;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+  transform-origin: center;
+}
+main > article.device-visible:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section > ul li:first-of-type div div:nth-of-type(7) {
+  animation-play-state: running;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section > ul li:first-of-type div div:nth-of-type(8) {
+  top: 0;
+  right: 35%;
+  width: 1.4em;
+  border-radius: 0.225em;
+  border: 0.185em solid var(--color-dsl-lightgray);
+  opacity: 0;
+  animation-name: ds-lite-boot-small-square-6;
+  animation-duration: 1s;
+  animation-delay: 3650ms;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+  transform-origin: center;
+}
+main > article.device-visible:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section > ul li:first-of-type div div:nth-of-type(8) {
+  animation-play-state: running;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section > ul li:first-of-type img {
+  width: 45%;
+  position: absolute;
+  bottom: 12.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  animation-name: ds-lite-boot-fade-logo;
+  animation-duration: 650ms;
+  animation-delay: 2250ms;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+}
+main > article.device-visible:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section > ul li:first-of-type img {
+  animation-play-state: running;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(1) > section > section::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 114%;
+  width: 110%;
+  background-color: var(--color-dsl-dark4);
+  border-radius: 0.45em;
+  transform: translateX(-50%) translateY(-50%) translateZ(-1px);
+  opacity: 0.45;
+  box-shadow: inset -0.1em -0.1em 0.15em rgb(255 255 255 / 0.55),
+              inset 0.1em 0.1em 0.15em rgb(0 0 0 / 0.55);
+}
+
+/* DS LITE MIDDLE HALF ---------- */
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(2) {
+  position: relative;
+  height: 2.65em;
+  transform: translateY(0.2em);
+  background-color: var(--color-dsl-dark);
+  background-image: linear-gradient(-90deg, var(--color-dsl-dark) 0%, var(--color-dsl-darkgray) 100%);
+  border-radius: 1.5em 1.5em 0 0;
+  box-shadow: inset -0.15em 0 .1em 0 rgb(0 0 0 / 0.35),
+              inset 0.175em 0 .1em -0.025em rgb(255 255 255 / 0.25);
+  z-index: 1;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(2)::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 0.2em;
+  width: 75.5%;
+  transform: translateX(-50%) translateY(-100%);
+  background-color: var(--color-dsl-dark);
+  box-shadow: inset 0 -0.05em 0.235em 0.0045em rgb(255 255 255 / 0.3),
+              inset 0 0.065em 0.1em rgb(0 0 0 / 0.525);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(2)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 10%;
+  height: 1em;
+  width: 85%;
+  background-color: transparent;
+  box-shadow: 0 1.5em 1em 0.35em var(--color-dsl-dark3);
+  z-index: -1;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(2) > section {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-dsl-darkgray);
+  background-image: linear-gradient(0deg, var(--color-dsl-dark2) 15%, var(--color-dsl-gray2) 60%, var(--color-dsl-darkgray) 100%);
+  border-radius: 1.5em;
+  box-shadow: inset 0 0 2em var(--color-dsl-dark3),
+              inset 0 -0.35em 1em -0.5em rgb(0 0 0 / 1),
+              0 0.2em 0.35em rgb(0 0 0 / 0.5),
+              0.5em 1.5em 1em -0.75em rgb(0 0 0 / 0.45);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(2) > section::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 100%;
+  width: 75.5%;
+  border-left: 0.15em solid var(--color-dsl-dark4);
+  border-right: 0.15em solid var(--color-dsl-dark4);
+  transform: translateX(-50%);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(2) > section > div:first-of-type {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  color: var(--color-dsl-dark2);
+  font-size: 0.65em;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  transform: translateY(-50%) translateX(45%);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(2) > section > div:first-of-type::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 125%;
+  aspect-ratio: 1 / 3;
+  background-color: var(--color-dsl-dark5);
+  box-shadow: inset -0.05em -0.025em .1em rgb(255 255 255 / 0.45);
+  border-radius: 10px;
+  transform: translateX(-200%) translateY(-50%);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(2) > section > div:last-of-type {
+  position: absolute;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 45%;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%) translateX(50%);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(2) > section > div:last-of-type div {
+  height: 1.9em;
+  aspect-ratio: 1 / 5.75;
+  border-radius: 0.5em;
+  background-color: var(--color-dsl-gray);
+  background-image: linear-gradient(0deg, var(--color-dsl-darkgray) 0%, var(--color-dsl-gray) 60%, var(--color-dsl-gray3) 100%);
+  box-shadow: inset -0.015em -0.01em 0.05em rgb(255 255 255 / 0.15),
+              inset 0.01em 0.01em 0.05em rgb(0 0 0 / 0.5);
+  transition: 250ms background-color;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(2) > section > div:last-of-type div:first-of-type {
+  animation-name: ds-lite-boot-led;
+  animation-duration: 250ms;
+  animation-delay: 1250ms;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+}
+main > article.device-visible:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(2) > section > div:last-of-type div:first-of-type {
+  animation-play-state: running;
+}
+main > article.device-charging:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(2) > section > div:last-of-type div:last-of-type {
+  background-color: var(--color-dsl-orange);
+  background-image: none;
+}
+
+/* DS LITE BOTTOM HALF ---------- */
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-dsl-dark);
+  background-image: linear-gradient(-45deg, var(--color-dsl-dark2) 10%, var(--color-dsl-darkgray) 90%);
+  border-radius: 0 0 1.5em 1.5em;
+  box-shadow: inset -0.15em -0.15em .1em 0 rgb(0 0 0 / 0.35),
+              inset 0.15em 0 .1em 0 rgb(255 255 255 / 0.25);
+}
+
+/* DS LITE BOTTOM HALF - D-PAD ---------- */
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(1) {
+  position: absolute;
+  left: 4.5%;
+  top: 25%;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(1)::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 108%;
+  width: 42%;
+  background-color: var(--color-black);
+  border-radius: 0.3em;
+  transform: translateX(-50%) translateY(-50%);
+  filter: blur(0.05em);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(1)::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 43%;
+  width: 108%;
+  background-color: var(--color-black);
+  border-radius: 0.3em;
+  transform: translateX(-50%) translateY(-50%);
+  filter: blur(0.05em);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(1) > ul {
+  list-style: none;
+  position: relative;
+  height: 5.35em;
+  aspect-ratio: 1 / 1;
+  background-color: transparent;
+  border: none;
+  display: grid;
+  place-items: center;
+  font-size: 1em;
+  z-index: 1;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(1) > ul li {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: calc(100% / 3);
+  aspect-ratio: 1 / 1;
+  background-color: var(--color-dsl-dark);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(1) > ul li:nth-of-type(1) {
+  justify-self: start;
+  border-radius: 8% 0 0 8%;
+  background-image: linear-gradient(-45deg, var(--color-dsl-dark3) 0%, var(--color-dsl-dark5) 50%);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(1) > ul li:nth-of-type(2) {
+  align-self: start;
+  border-radius: 8% 8% 0 0;
+  background-image: linear-gradient(-45deg, var(--color-dsl-dark3) 0%, var(--color-dsl-dark5) 50%);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(1) > ul li:nth-of-type(3) {
+  justify-self: end;
+  border-radius: 0 8% 8% 0;
+  background-image: linear-gradient(-45deg, var(--color-dsl-dark) 0%, var(--color-dsl-dark3) 50%);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(1) > ul li:nth-of-type(4) {
+  align-self: end;
+  border-radius: 0 0 8% 8%;
+  background-image: linear-gradient(-45deg, var(--color-dsl-dark) 0%, var(--color-dsl-dark3) 50%);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(1) > ul li:nth-of-type(5) {
+  background-image: linear-gradient(-45deg, var(--color-dsl-dark3) 50%, var(--color-dsl-dark5) 100%);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(1) > ul li button {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(1) > ul li button {
+  border-radius: inherit;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(1) > ul li button:focus {
+  background-color: var(--color-dsl-dark3);
+  border-radius: inherit;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(1) > ul li button::after {
+  content: '';
+  height: 10%;
+  aspect-ratio: 6 / 1;
+  background-color: var(--color-white);
+  border-radius: 0.1em;
+  opacity: 0.75;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(1) > ul li:nth-of-type(1) button {
+  box-shadow: inset 0.15em 0.15em 0.1em -0.035em rgb(255 255 255 / 0.3),
+              inset 0 -0.225em 0.1em -0.125em rgb(0 0 0 / 0.45);
+} 
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(1) > ul li:nth-of-type(2) button {
+  box-shadow: inset 0.15em 0.15em 0.1em -0.035em rgb(255 255 255 / 0.3),
+              inset -0.225em 0 0.1em -0.125em rgb(0 0 0 / 0.45);
+} 
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(1) > ul li:nth-of-type(3) button {
+  box-shadow: inset 0 0.225em 0.1em -0.125em rgb(255 255 255 / 0.3),
+              inset -0.15em -0.15em 0.1em -0.035em rgb(0 0 0 / 0.45);
+} 
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(1) > ul li:nth-of-type(4) button {
+  box-shadow: inset 0.225em 0 0.1em -0.125em rgb(255 255 255 / 0.3),
+              inset -0.15em -0.15em 0.1em -0.035em rgb(0 0 0 / 0.45);
+} 
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(1) > ul li:nth-of-type(1) button::after {
+  transform: translateX(20%);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(1) > ul li:nth-of-type(2) button::after {
+  height: auto;
+  width: 10%;
+  aspect-ratio: 1 / 6;
+  transform: translateY(20%);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(1) > ul li:nth-of-type(3) button::after {
+  transform: translateX(-20%);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(1) > ul li:nth-of-type(4) button::after {
+  height: auto;
+  width: 10%;
+  aspect-ratio: 1 / 6;
+  transform: translateY(-20%);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(1) > ul li:nth-of-type(5) button::after {
+  content: none;
+}
+
+/* DS LITE BOTTOM HALF - SCREEN ---------- */
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(2) {
+  position: relative;
+  height: 72.5%;
+  width: 46.5%;
+  /* aspect-ratio: 4 / 3; */
+  border-radius: 0.15em;
+  transform-style: preserve-3d;
+  transform: translateY(-4%);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(2)::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 115%;
+  width: 0.1em;
+  background-color: transparent;
+  box-shadow: -0.15em 0 1em 0.55em rgb(0 0 0 / 1),
+              -0.45em -0.35em 1.2em 1.25em rgb(255 255 255 / 0.45);
+  transform: translateX(-0.5em) translateY(-53%) translateZ(-2px);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(2) > section {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-black);
+  border-radius: 0.15em;
+  box-shadow: inset 0 0 0.35em rgb(0 0 0 / 0.75);
+  animation-name: ds-lite-boot-background;
+  animation-duration: 500ms;
+  animation-delay: 2s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+  transform-style: preserve-3d;
+}
+main > article.device-visible:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(2) > section {
+  animation-play-state: running;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(2) > section > ul {
+  list-style: none;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  opacity: 0;
+  animation-name: ds-lite-boot-fade-logo;
+  animation-duration: 500ms;
+  animation-delay: 2250ms;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+}
+main > article.device-visible:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(2) > section > ul {
+  animation-play-state: running;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(2) > section > ul li {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  width: 100%;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(2) > section > ul > li:first-of-type {
+  font-family: var(--font-bebas-neue);
+  font-weight: 400;
+  color: var(--color-dsl-dark);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(2) > section > ul > li > ul {
+  display: grid;
+  place-items: center;
+  height: 92%;
+  width: 100%;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(2) > section > ul > li > ul li {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(2) > section > ul > li:first-of-type > ul li h3 {
+  font-size: 1.25em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-black);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(2) > section > ul > li:first-of-type  > ul li img {
+  height: 1.15em;
+  margin-right: 0.5em;
+  transform: translateY(-1%);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(2) > section > ul > li:first-of-type > ul li p {
+  width: 100%;
+  padding: 0 2.75em;
+  text-align: center;
+  letter-spacing: 0.025em;
+  line-height: 125%;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(2) > section > ul > li:first-of-type > ul li:nth-of-type(3) {
+  flex-direction: column;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(2) > section > ul > li:first-of-type > ul li:nth-of-type(3) p {
+  font-size: 0.8em;
+} 
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(2) > section > ul > li:first-of-type > ul li:nth-of-type(3) strong {
+  color: var(--color-dsl-blue);
+  font-family: var(--primary-font);
+  font-size: 0.75em;
+  font-weight: 400;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(2) > section > ul > li:first-of-type > ul li:nth-of-type(4) p {
+  font-family: var(--primary-font);
+  font-size: 0.75em;
+  font-weight: 400;
+  animation-name: ds-lite-boot-pulse;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(2) > section::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -7%;
+  height: 122%;
+  width: 110%;
+  background-color: var(--color-dsl-dark2);
+  box-shadow: 0.4em 0.5em 0.65em 0.5em var(--color-dsl-dark3),
+              inset 0.15em 0.15em 0.1em 0 rgb(255 255 255 / 0.1),
+              inset -0.1em -0.1em 0.1em rgb(255 255 255 / 0.225);
+  border-radius: 0 0 0.45em 0.45em;
+  transform: translateX(-50%) translateZ(-1px);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(2) > section::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -6%;
+  height: 112%;
+  width: 108%;
+  background-color: var(--color-dsl-dark3);
+  background-image: linear-gradient(-45deg, var(--color-dsl-dark5) 0%, var(--color-dsl-dark2) 100%);
+  box-shadow: inset 0.075em 0.15em 0.075em 0 rgb(0 0 0 / 0.35);
+  border-radius: 0.3em;
+  transform: translateX(-50%) translateZ(-1px);
+}
+
+/* DS LITE BOTTOM HALF - PRIMARY BUTTONS ---------- */
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(3) > section:first-of-type {
+  position: absolute;
+  right: 4.75%;
+  top: 16.5%;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(3) > section:first-of-type ol {
+  list-style: none;
+  height: fit-content;
+  width: fit-content;
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 5%;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(3) > section:first-of-type ol li {
+  height: 2em;
+  aspect-ratio: 1 / 1;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(3) > section:first-of-type ol li:nth-of-type(1) {
+  grid-area: 2 / 1 / 2;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(3) > section:first-of-type ol li:nth-of-type(2) {
+  grid-area: 1 / 2 / 1;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(3) > section:first-of-type ol li:nth-of-type(3) {
+  grid-area: 3 / 3 / 2;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(3) > section:first-of-type ol li:nth-of-type(4) {
+  grid-area: 3 / 2 / 3;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(3) > section:first-of-type ol li button {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-dsl-dark3);
+  color: rgb(255 255 255 / 0.75);
+  border: none;
+  border-radius: 50%;
+  box-shadow: inset 0.1em 0.1em 0.2em var(--color-dsl-gray3),
+              inset -0.15em -0.15em 0.2em rgb(0 0 0 / 0.65),
+              0 0 0.1em 0.125em rgb(0 0 0 / 0.85),
+              0.25em 0.22em 0.2em 0.1em rgb(0 0 0 / 0.85);
+  font-size: 1em;
+  font-weight: 500;
+}
+
+/* DS LITE BOTTOM HALF - SECONDARY BUTTONS ---------- */
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(3) > section:last-of-type {
+  position: absolute;
+  right: 17.5%;
+  bottom: 14.5%;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(3) > section:last-of-type ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3em;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(3) > section:last-of-type ul li {
+  display: flex;
+  height: 1em;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(3) > section:last-of-type ul li button {
+  position: relative;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background-color: var(--color-dsl-dark4);
+  box-shadow: inset -0.1em -0.1em 0.1em rgb(0 0 0 / 0.75),
+              inset 0.025em 0.025em 0.15em var(--color-dsl-gray3),
+              0 0 0.085em 0.115em rgb(0 0 0 / 0.85),
+              0.175em 0.15em 0.2em 0.05em rgb(0 0 0 / 0.85);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(3) > section:last-of-type ul li:first-of-type button {
+  cursor: pointer;
+  transition: 250ms background-color, 250ms box-shadow;
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(3) > section:last-of-type ul li:first-of-type button:hover {
+  background-color: var(--color-dsl-dark3);
+  box-shadow: inset -0.05em -0.05em 0.1em rgb(0 0 0 / 1),
+              inset 0.025em 0.025em 0.2em rgb(200 200 200 / 0.25),
+              0 0 0.085em 0.115em rgb(0 0 0 / 0.65),
+              0.175em 0.15em 0.15em 0.05em rgb(0 0 0 / 0.45);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(3) > section:last-of-type ul li:first-of-type button:active {
+  box-shadow: inset -0.05em -0.05em 0.1em rgb(0 0 0 / 1),
+              inset 0.025em 0.025em 0.15em rgb(150 150 150 / 0.25),
+              0 0 0.085em 0.115em rgb(0 0 0 / 0.65),
+              0.175em 0.15em 0.15em 0.05em rgb(0 0 0 / 0.15);
+}
+main > article:nth-of-type(2) > section:nth-of-type(1) > section:nth-of-type(3) > section:nth-of-type(3) > section:last-of-type ul li button::after {
+  content: attr(button-label);
+  position: absolute;
+  left: 150%;
+  top: 50%;
+  font-size: 0.65em;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  opacity: 0.75;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* DS LITE INTERFACE ---------- */
+main > article:nth-of-type(2) > section:nth-of-type(2) {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  background-color: var(--color-white);
+  border-radius: 1.5em;
+  box-shadow: none;
+  transform: scale(0.85);
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: 350ms 500ms;
+}
+main > article.menu-active:nth-of-type(2) > section:nth-of-type(2) {
+  border-radius: 0;
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition: 350ms 750ms;
+}
+main > article:nth-of-type(2) > section:nth-of-type(2) ol {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 100%;
+  width: 75%;
+}
+main > article:nth-of-type(2) > section:nth-of-type(2) ol li {
+  display: grid;
+  place-items: center;
+  gap: 1em;
+  width: 100%;
+}
+main > article:nth-of-type(2) > section:nth-of-type(2) ol li button {
+  position: relative;
+  padding: 0.5em 0.75em;
+  width: 100%;
+  /* font-family: var(--font-bebas-neue); */
+  font-size: 5vh;
+  font-weight: 500;
+  line-height: 155%;
+  
+  background-color: var(--color-dsl-gray2);
+  background-image: linear-gradient(0deg, rgb(255 255 255 / 0.5) 0%, rgba(255 255 255 / 1) 100%);
+  color: var(--color-black);
+  box-shadow: inset 0 0 0 0.1em var(--color-black);
+  cursor: pointer;
+  transition: 250ms;
+}
+main > article:nth-of-type(2) > section:nth-of-type(2) ol li button:hover, 
+main > article:nth-of-type(2) > section:nth-of-type(2) ol li button:focus {
+  background-color: var(--color-dsl-darkgray);
+}
+main > article:nth-of-type(2) > section:nth-of-type(2) ol li button::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  --ds-interface-border: 0.275em;
+  --ds-interface-border-width: 0.75em;
+  --ds-interface-border-color: transparent 90deg, transparent 0;
+  border: var(--ds-interface-border) solid transparent;
+  background:
+    conic-gradient(from 90deg at top var(--ds-interface-border) left  var(--ds-interface-border), var(--ds-interface-border-color)) 0 0,
+    conic-gradient(from 180deg at top var(--ds-interface-border) right var(--ds-interface-border), var(--ds-interface-border-color)) 100% 0,
+    conic-gradient(from 0deg at bottom var(--ds-interface-border) left  var(--ds-interface-border), var(--ds-interface-border-color)) 0 100%,
+    conic-gradient(from -90deg at bottom var(--ds-interface-border) right var(--ds-interface-border), var(--ds-interface-border-color)) 100% 100%;
+  background-size: var(--ds-interface-border-width) var(--ds-interface-border-width);
+  background-origin: border-box;
+  background-repeat: no-repeat;
+}
+main > article:nth-of-type(2) > section:nth-of-type(2) ol li button:hover::after {
+  --ds-interface-border-color: transparent 90deg, var(--color-black) 0;
+}
+main > article:nth-of-type(2) > section:nth-of-type(2) ol li button:focus::after {
+  --ds-interface-border-color: transparent 90deg, var(--color-dsl-interface-primary) 0;
+}
+main > article:nth-of-type(2) > section:nth-of-type(2) ol li.active button {
+  background-color: var(--color-dsl-interface-primary);
+  animation-name: ds-lite-menu-pulse-background;
+  animation-duration: 1.5s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -633,19 +1737,178 @@ main > article:nth-of-type(1) > section:nth-of-type(2) ol li.active button:hover
 }
 @keyframes gameboy-menu-pulse-text {
   0%, 100% {
-    background-color: var(--color-gb1-green1);
-    color: var(--color-gb1-green2);
-  }
-  50% {
     background-color: var(--color-gb1-green2);
     color: var(--color-gb1-green1);
+  }
+  50% {
+    background-color: var(--color-gb1-green1);
+    color: var(--color-gb1-green2);
   }  
 }
 @keyframes gameboy-menu-pulse-chevron {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }  
+}
+
+/* DS LITE ---------- */
+@keyframes ds-lite-boot-background {
+  from {
+    background-color: var(--color-black);
+  }
+  to {
+    background-color: var(--color-white);
+  }
+}
+@keyframes ds-lite-boot-pulse {
   0%, 100% {
     opacity: 0;
   }
   50% {
     opacity: 1;
+  }
+}
+@keyframes ds-lite-boot-fade-logo {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes ds-lite-boot-upper-square-top {
+  from {
+    transform: translateY(-150%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes ds-lite-boot-upper-square-bottom {
+  from {
+    transform: translateY(150%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes ds-lite-boot-upper-square-2 {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  65% {
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+@keyframes ds-lite-boot-small-square-1 {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  10% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.75) translateX(-85%) translateY(-125%);
+    opacity: 0;
+  }
+}
+@keyframes ds-lite-boot-small-square-2 {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  10% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.95) translateX(-105%) translateY(-75%);
+    opacity: 0;
+  }
+}
+@keyframes ds-lite-boot-small-square-3 {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  35% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: scale(3.25) translateX(75%) translateY(75%);
+    opacity: 0;
+  }
+}
+@keyframes ds-lite-boot-small-square-4 {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  35% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: scale(2.25) translateX(-75%) translateY(200%);
+    opacity: 0;
+  }
+}
+@keyframes ds-lite-boot-small-square-5 {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  35% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: scale(2.25) translateX(-150%) translateY(75%);
+    opacity: 0;
+  }
+}
+@keyframes ds-lite-boot-small-square-6 {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  35% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: scale(1.75) translateX(150%) translateY(-105%);
+    opacity: 0;
+  }
+}
+@keyframes ds-lite-boot-led {
+  from {
+    background-color: var(--color-dsl-gray);
+    background-image: linear-gradient(0deg, var(--color-dsl-darkgray) 0%, var(--color-dsl-gray) 60%, var(--color-dsl-gray3) 100%);
+  }
+  to {
+    background-color: var(--color-dsl-green);
+    background-image: none;
+  }
+}
+@keyframes ds-lite-menu-pulse-background {
+  0%, 100% {
+    background-color: var(--color-dsl-interface-primary);
+  }
+  50% {
+    background-color: var(--color-dsl-gray2);
   }  
 }
