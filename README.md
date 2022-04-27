@@ -132,26 +132,41 @@ Zwart
 ## Voortgang/Feedback 3
 
 <details>
-  <summary>Mijn bevindingen + wijzigingen (minimaal 5)</summary>
+  <summary>Feedback van Isabelle, Amber en Yunus</summary>
   
   ### Bevinding 1:
-  Omschrijving van wat er nog niet orde was (tekst en afbeeding(en)).
+  Achtergrond voelt nog wat saai aan, kan leuker of interessanter worden. 
 
   #### oplossing:
-  Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
-
+  Het toevoegen van een achtergrond(kleur) om per apparaat een onderscheid te maken.
 
 
   ### Bevinding 2:
-  Omschrijving van wat er nog niet orde was (tekst en afbeeding(en)).
+  In plaats van een spelletje uitwerken, misschien meer focussen op de interface van het apparaat.
 
   #### oplossing:
-  Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
-
+  Voornamelijk de focus leggen op het apparaat an sich en niet de dingen daaromheen en dus ook niet de spellen die gespeeld kunnen worden, maar eerder het hoofdmenu etc.
 
 
   ### Bevinding 3:
-  ...
+  Mogelijke extra's toevoegen tijdens het opstarten/interacteren van het apparaat.
+  
+  #### oplossing:
+  Geluidjes toevoegen (passend bij het apparaat) tijdens het opstarten. Mogelijke "eastereggs" of verrassingen/delighters toevoegen. Dat zal donderdag duidelijk worden, of je moet ze al zelf ontdekt hebben :D.
+  
+  
+  ### Bevinding 4:
+  Voor de switch mogelijk een Mii karakter toevoegen aan de interface?
+  
+  #### oplossing:
+  Account selectie namaken van de switch interface, waar een Mii karakter is te zien.
+  
+  
+  ### Bevinding 5:
+  Meer interacties mogelijk maken met het apparaat.
+  
+  #### oplossing:
+  D-PAD en andere knoppen klikbaar maken en waar mogelijk, misschien ook het touchscreen.
 
 </details>
 
