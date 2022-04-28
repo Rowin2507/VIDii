@@ -1,3 +1,6 @@
+// HEADER
+var header = document.querySelector('header');
+
 // GAMEBOY --------------------------------
 var gameBoy = document.querySelector('main > article:nth-of-type(1)');
 var gameBoyStartButton = document.querySelector('main > article:nth-of-type(1) > section:nth-of-type(1) > section:nth-of-type(3) > ul > li:nth-of-type(3) button:last-of-type');
@@ -10,6 +13,7 @@ gameBoyMenuButton1.addEventListener('click', gameBoyMenuClose);
 // OPEN GAMEBOY MENU
 function gameBoyMenuOpen() {
     gameBoy.classList.add('menu-active');
+    header.classList.add('hidden');
 }
 
 // CLOSE GAMEBOY MENU
@@ -196,7 +200,7 @@ function showDSLite() {
     gameBoy.classList.add('device-hidden');
     nSwitch.classList.remove('menu-active');
     nSwitch.classList.add('device-hidden');
-    
+
     resetAnimations();
     bootDSLiteAudio();
 }

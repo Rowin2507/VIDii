@@ -1,4 +1,5 @@
 /* VARIABLES -------------------------------- */
+/* VARIABLES -------------------------------- */
 :root {
   --gameboy1-width: 360;
   --ds-lite-width: 600;
@@ -61,6 +62,8 @@
 }
 
 
+
+/* RESET -------------------------------- */
 /* RESET -------------------------------- */
 *, *::after, *::before {
   box-sizing:border-box;  
@@ -72,6 +75,7 @@
 
 
 
+/* FONTS -------------------------------- */
 /* FONTS -------------------------------- */
 /* BEBAS NEUE ---------- */
 @font-face {
@@ -98,9 +102,6 @@
 
 
 
-
-
-
 /* GENERAL STYLING -------------------------------- */
 /* GENERAL STYLING -------------------------------- */
 html, body {
@@ -118,6 +119,23 @@ button {
   border: none;
   border-radius: 0;
   background-color: transparent;
+}
+header {
+  position: fixed;
+  left: 2.5em;
+  bottom: 2.5em;
+  z-index: 15;
+  transition: 350ms;
+}
+header.hidden {
+  opacity: 0;
+}
+header h1 {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+header p {
+  opacity: 1;
 }
 main > article {
   position: absolute;
@@ -137,16 +155,6 @@ main > article.device-hidden {
 }
 main > article.device-hidden > section:nth-of-type(1) {
   transform: scale(8);
-}
-
-/* TEMP (IS MORGEN WEG) ()())()()()()() */
-body > img {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50.5%);
-  width: calc(var(--switch-width) * 1px);
-  z-index: 10;
 }
 
 
