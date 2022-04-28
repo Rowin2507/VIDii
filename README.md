@@ -194,8 +194,11 @@ Zwart
   <img src="readme-images/lastig.png" width="375px" alt="bummer">
   
   
-  ### Hoe verder?
+  ### Hoe nu verder?
   Ik ga nu nog verder met het verder uitwerken van de Switch en de bijhorende interacties. Ook zal ik de interface elementen van de andere handhelds verfijnen. Het interactief maken van alle knoppen ben ik ook mee bezig. Nu zijn ze dat nog niet, aangezien er geen functie achter zit.
+  
+  ### Hoe is het verder verlopen?
+  Uiteindelijk heb ik de belangrijkste dingen van m'n concept afgerond, maar zijn er zeker nog wel dingen die ik graag had willen doen als ik meer tijd had gehad. Zo had ik graag nog de hele interface na willen maken en dus ook meer interactie met het apparaat. Wel ben ik natuurlijk blij met het resultaat en heb ik zeker nieuwe dingen geleerd. Bij de Switch heb ik voor het eerst gewerkt met een SVG filter als clip-path op een element en zou daar graag nog meer over willen leren. Echter ben ik al blij met de mate van realisme in de uitwerkingen en kan ik dus niet ontevreden terug kijken op de afgelopen periode.
 </details>
 
 
@@ -216,5 +219,7 @@ Nb. Wees specifiek ('css-tricks' als bron is bijv. niet specifiek genoeg).
 5. https://developer.mozilla.org/en-US/docs/web/javascript/reference/global_objects/date
 6. https://stackoverflow.com/questions/14387690/how-can-i-show-only-corner-borders
 7. https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/conic-gradient
+8. https://css-tricks.com/almanac/properties/c/clip-path/
+9. https://yoksel.github.io/relative-clip-path/
 
 </details>
